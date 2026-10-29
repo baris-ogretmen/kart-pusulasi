@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kart Pusulası</title>
+<meta name="description" content="Kredi kartı ödeme takvimi, hatırlatma ve akıllı ödeme planı">
+<meta name="theme-color" content="#0f766e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="KartPusulası">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAABgFBMVEUAAAD+/v4OZmnP6eX6viQOW2aet7X////ZJiYOT2Lm7ez7wzIPcGzE1dgOaGoOZ2n+8tQOaWr///8OWmb7y0/93Ij956////8PaWr///8OaGn81XEPaWoNZ2n///8OWWX///8AVVUOWWYOWWb///8OWmYOWWYPcGwAgICyx8f94ZosXFkPcGxKa1K2NjCwRDOvVTOqmDjoqyb+7cMOcWsPcG0OcGx1O0NoeUqFh0K1ZjLJhy/amynLqDD80F4RWWohXXBLhY1xm6SakT2dusC6cDKqwL7eODjcsSvxp6ccVV80a3wwcnxfdU1DdoV8g0RkjptpmZ+Xa3OXcDy/ozSguLXBfDDdztHhSEjkVlbodHTsh4cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABLWM2/AAAAgHRSTlMA/v7+//7/wP/////9/9FK/66O0f///65uCYv/EitKUWcDMaoxaoxKAv///9f/////////MI24//////////8P/////////////////////////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcuyk0AAAT7SURBVHja7ZtpX9s4EMZjkxAZB8cOOU0SArRAuaEUaIGWttvt3e59fv/vsbLTbYnkK5bskfqb51Vr3sz/Gc2MJDuVSoKGzb7veY5pOp7n95vDik7aOfNp5LNy/NGOJuE3PTNGXlOD8Lf3zQQ5qiNsO2aKlEY4O2+Y6fJGqsb/yMwSP1VfyfCH542M8dMkKNhVR/vZ46eVoBzBdmOe+KkUq+V+w5wvfsUKoTmv/4rl4Gx+/wMp006H+4088StTycPzXP4H3VSN7d2jRs74TdNXpIGauaVCITsC8dccFRIgEL9Zg0/BvkD8VCvgCRDyn2oNNv51R8j/IAXrsHsgQf+p7oMCeIL+U22C3p8I+08FugsV9p9qA/QULOx/rbYFOYXF/QcdBSMJ/oOuob4E/0EbaV+G/5AAvgz/IavYk+E/5ChzZPgP2YYcGf5DAkjxH3IzIcV/SABHiv+a1EC8/4AAngz/IduoL8N/yEHWl+G/DnuhmqkowEiG/6BHMkeC/6B3W74E/0GPlE1x/2EP9evi/sNeq6SOsnT/YS+20tZQBv+Bb3eTL3cz+A99uZuYgpr6CUgcBVn8h3/BEZ+Cmh4JiG1EmfwHbkFJG6Js/oMOscT9BOf/hxeLD5Y5LdTlqtea3MvxlsNL9f/5slGa6vMjDJ0U/xeNUtUSLQPGfvOBUbJ6A6FeCux/vhz049f/zwaAxvnnGdd/FiAAejnGgRPd/58bhh4pqDzzIufvDzAArRwDbd2Pmr/LMAD1fBs7hwdYggEwcm4r1lZYAKD4jUFOgh0WwdArA2EWNjUHoOW8sbWiNUDYVTfW7m9trugL8L8QABpgAUgIgAAIgAAIgAAIgADfL8DXPZuOAPzOs1AAPA98vwCuqy3Aw07brgay26td7QAetquzsjs6AbirVV72rjYAnTthn975d9vVA2Bm9RzfJbC7GgC49szCIa9m/ttRH2A2/mtyVE0gUBCA6T5PCGFquas2wFMm3ENCrphm5KoM0GV7JyHkmG2nKgPYTLB/UIBDFmpXXYAOG+sRBSCn8SlQDcCOWEGEPGGfrqoKwCXgOgQ44nYVxQMsxWm+BByHAIQD6BYLsLyYoISvclwu0MMpwFXsGioEIDH+JIJdNs7TafxcI/1WxoUA/JgMEP9hEbeHfvUFgMQWQSEAv6cALGWdwkET/fvff14Tcs3+xVUyA22+ib4Nnv/FN9KukjXANqEr8jp8/pYfxl0luxAb5a8Xv4TP/7y4iNtNqDUH2AzcWLfh80XroNwMSDoKVKt7Vvgl2HvrpR4AXBe6tKxPL366taw3pXah3OLmwIk11V65cyC3uElcrU0BPpc7ifOLAziYAvxW7l5IYhU/DuN/V/ZuVN554CYE+Bi7gtQ/ke0FACfanMj4FFwGAFV9zsRcCoJGeqDRrQR/L0Qb6WOd7oW4RkQb6U0ZN3P1oghecmO4K/zxd5RaRd1Ov7EuE26nW9IAxoW9H9g7SbhdH0sDGMhbQ8wqmilh5g1NfVBRMQUR29Ko+pWaALlVEPGSNfJFa0tm/JVBr+z3xL1BRa6k5iAYaqv2t+hdKT8AStG9umHI/1Qi+mOJHD8GzYQwafUk/N42Fkfk57ilKrqgJoOKPhpMZhnqrbFO4X9ZkGO6Int0wUw0DB6FQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCjU3PoPnNKxFqwBMcwAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%20%22Kart%20Pusulas%C4%B1%22%2C%20%22short_name%22%3A%20%22KartPusulas%C4%B1%22%2C%20%22start_url%22%3A%20%22./%22%2C%20%22scope%22%3A%20%22./%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22orientation%22%3A%20%22portrait%22%2C%20%22background_color%22%3A%20%22%230f766e%22%2C%20%22theme_color%22%3A%20%22%230f766e%22%2C%20%22description%22%3A%20%22Kredi%20kart%C4%B1%20%C3%B6deme%20takvimi%20ve%20ak%C4%B1ll%C4%B1%20%C3%B6deme%20plan%C4%B1%22%2C%20%22lang%22%3A%20%22tr%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAABgFBMVEUAAAD%2B/v4OZmnP6eX6viQOW2aet7X////ZJiYOT2Lm7ez7wzIPcGzE1dgOaGoOZ2n%2B8tQOaWr///8OWmb7y0/93Ij956////8PaWr///8OaGn81XEPaWoNZ2n///8OWWX///8AVVUOWWYOWWb///8OWmYOWWYPcGwAgICyx8f94ZosXFkPcGxKa1K2NjCwRDOvVTOqmDjoqyb%2B7cMOcWsPcG0OcGx1O0NoeUqFh0K1ZjLJhy/amynLqDD80F4RWWohXXBLhY1xm6SakT2dusC6cDKqwL7eODjcsSvxp6ccVV80a3wwcnxfdU1DdoV8g0RkjptpmZ%2BXa3OXcDy/ozSguLXBfDDdztHhSEjkVlbodHTsh4cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABLWM2/AAAAgHRSTlMA/v7%2B//7/wP/////9/9FK/66O0f///65uCYv/EitKUWcDMaoxaoxKAv///9f/////////MI24//////////8P/////////////////////////////////////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcuyk0AAAT7SURBVHja7ZtpX9s4EMZjkxAZB8cOOU0SArRAuaEUaIGWttvt3e59fv/vsbLTbYnkK5bskfqb51Vr3sz/Gc2MJDuVSoKGzb7veY5pOp7n95vDik7aOfNp5LNy/NGOJuE3PTNGXlOD8Lf3zQQ5qiNsO2aKlEY4O2%2BY6fJGqsb/yMwSP1VfyfCH542M8dMkKNhVR/vZ46eVoBzBdmOe%2BKkUq%2BV%2Bw5wvfsUKoTmv/4rl4Gx%2B/wMp006H%2B4088StTycPzXP4H3VSN7d2jRs74TdNXpIGauaVCITsC8dccFRIgEL9Zg0/BvkD8VCvgCRDyn2oNNv51R8j/IAXrsHsgQf%2Bp7oMCeIL%2BU22C3p8I%2B08FugsV9p9qA/QULOx/rbYFOYXF/QcdBSMJ/oOuob4E/0EbaV%2BG/5AAvgz/IavYk%2BE/5ChzZPgP2YYcGf5DAkjxH3IzIcV/SABHiv%2Ba1EC8/4AAngz/IduoL8N/yEHWl%2BG/DnuhmqkowEiG/6BHMkeC/6B3W74E/0GPlE1x/2EP9evi/sNeq6SOsnT/YS%2B20tZQBv%2BBb3eTL3cz%2BA99uZuYgpr6CUgcBVn8h3/BEZ%2BCmh4JiG1EmfwHbkFJG6Js/oMOscT9BOf/hxeLD5Y5LdTlqtea3MvxlsNL9f/5slGa6vMjDJ0U/xeNUtUSLQPGfvOBUbJ6A6FeCux/vhz049f/zwaAxvnnGdd/FiAAejnGgRPd/58bhh4pqDzzIufvDzAArRwDbd2Pmr/LMAD1fBs7hwdYggEwcm4r1lZYAKD4jUFOgh0WwdArA2EWNjUHoOW8sbWiNUDYVTfW7m9trugL8L8QABpgAUgIgAAIgAAIgAAIgADfL8DXPZuOAPzOs1AAPA98vwCuqy3Aw07brgay26td7QAetquzsjs6AbirVV72rjYAnTthn975d9vVA2Bm9RzfJbC7GgC49szCIa9m/ttRH2A2/mtyVE0gUBCA6T5PCGFquas2wFMm3ENCrphm5KoM0GV7JyHkmG2nKgPYTLB/UIBDFmpXXYAOG%2BsRBSCn8SlQDcCOWEGEPGGfrqoKwCXgOgQ44nYVxQMsxWm%2BBByHAIQD6BYLsLyYoISvclwu0MMpwFXsGioEIDH%2BJIJdNs7TafxcI/1WxoUA/JgMEP9hEbeHfvUFgMQWQSEAv6cALGWdwkET/fvff14Tcs3%2BxVUyA22%2Bib4Nnv/FN9KukjXANqEr8jp8/pYfxl0luxAb5a8Xv4TP/7y4iNtNqDUH2AzcWLfh80XroNwMSDoKVKt7Vvgl2HvrpR4AXBe6tKxPL366taw3pXah3OLmwIk11V65cyC3uElcrU0BPpc7ifOLAziYAvxW7l5IYhU/DuN/V/ZuVN554CYE%2BBi7gtQ/ke0FACfanMj4FFwGAFV9zsRcCoJGeqDRrQR/L0Qb6WOd7oW4RkQb6U0ZN3P1oghecmO4K/zxd5RaRd1Ov7EuE26nW9IAxoW9H9g7SbhdH0sDGMhbQ8wqmilh5g1NfVBRMQUR29Ko%2BpWaALlVEPGSNfJFa0tm/JVBr%2Bz3xL1BRa6k5iAYaqv2t%2BhdKT8AStG9umHI/1Qi%2BmOJHD8GzYQwafUk/N42Fkfk57ilKrqgJoOKPhpMZhnqrbFO4X9ZkGO6Int0wUw0DB6FQqFQKBQKhUKhUCgUCoVCoVAoFAqFQqFQKBQKhUKhUCjU3PoPnNKxFqwBMcwAAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22192x192%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%20maskable%22%7D%2C%20%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAMAAADDpiTIAAABgFBMVEUOZ2kOWWX%2B/v7P6OUOcWwAAAD6viSet7XbJiYOT2L7wS4KZWf81G%2BuyMr95677y1AOYmgOY2j%2B8tQOY2gOVmUOVGQOYmgOY2gOYmgAgIAOcm0OVWUOU2MOVGQOcmwOcm394ZgOcm0Oc23n7O3H2NknanUOVGS3NjC70tMPc20rdXqwWDMPVWYQdG%2BvRjOvmzeku7jNqS/oqydilpx3pan93IkPTWRPiI8bVV8sXFpIalJbc05YlZdwfUiJrLS8czHTlCz97cSdu8E5eII7g4Vum6PKhy8AgGA6Y1Z8g0STjT%2BLikGakT2ewcK1ZjKqwL3P3uHV4N7vmZnxp6f80F4MTmMEU1jBfDDiTk7jVVX3ysr51tYAQIBCdYXf8O4wgH9/sbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC53n2QAAAAgHRSTlP%2B/v///gD//////w//////sE7/zs2qbZAwAs8tUG9Nrv9qj////5H//yv//xIT//////////8P/////////////////////wj/////////////////KQj//////wT/////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM1rvlgAABQDSURBVHja7Z2Hctw4FkXBjnJHJUtqWTlYwbbknG05e8Zjz3hy3t3//4rtoNCBrSZIAASB81SumnVZUtW%2Bw3dwAZItitrr1trm1tbW%2Bvry8nJBvsTwl%2Bj%2Bcbnm5uampxcXFxdmqvq7I3T%2B8IN26%2BM0PYSCgh%2B9H4VBNwa6AKiuKWm9CPvyr%2BYWtVEg7G3%2BMAWelyYIhM3NF8MzQHjOgQYIlAJwa1Pple%2B7/8dAsFC1E4Bba%2BuqO4//w2ta4RxQBMBH1d3H/4YYUAFAS0f3Pcz/0gy07ABA18WP/ycjkD4ArbVljZMf/09aEc6kC0B1c7lQ0Hj90/cICPyWGgAfN/VOfvxvIBcmAGCtoLXwf/SaSQGAg3XNkx//yywHq4YBqG4VdF//9F2q4nogHgBrywVj1z8O0BoI4gBwa71QwP%2BOeEAegNam/smP/2N6oKUfgFvLhQL%2Bt9YDVd0ArBmY/PjfYCKUA%2BDjVqGA/%2B2uxao%2BAA6WC/jffg0s6QJgrVDA/65pIDoA1fWC0esfBxgJhMKO8Y//09KAsOXkB/%2BrrSW1AJjQP31PYyEQDYBNI5Mf/6vdFlQHwFYB/2dxR0ARAJqX//g/1TAgbNj8x//pHQ2ItPtP/k%2BXAGHJ9Y//UyJgAgAf8b/j64DLAWit4//ME9BKAMAW%2Bd/1NCjI/34TINLc/8P/6e8JCvb//T4XENac/%2BGAVAgYC8AB/hc%2BnA6PA6C1jP%2Bd2hBqSQKwhf/9iAIijQUA%2Bd%2BeZUA4AFX8715VowOgdwcY/6e0JxwdgE38781%2BkDCdAMn/dmVBkdLzv/jfkpsDhNkEiP9ty4IihS1A%2Bm6RBEYBWCb/%2B5QEhPEEgP%2BtSgLDANzC/35tBwnDZwD03bJ1oDC1AiT/27kOFMZWgPjfynWgMLMCxP%2B2rgMHAGjhfx%2BqNRYA3v/v3wgQxlYA%2BN%2BWmhsHwBr%2BF97dHCQMDQD6bukIELoHAPnf7hHQB8A6/vdwL0Do3QTE/7ZvBwoDA4C%2BWzwChM4BQP63tYKlEQC28L/w8VBQ6HsUBP%2BLDNwXIDQ/C0bfLU%2BCQtcSkPyfjWWg0HonGP633gFCzzkg/s%2BKA4TGTQD6ngEHCB0ZgPxv/T7AuQOEtjtB8L/Iwn0hQv1BMP7PxgyYuwDgAP/7iMC1cwA2yf/eXf/tr4VzANbxv4%2BrwOkzAFr438Prv/3VOgXgAP/7ScHSKQCb5H%2BfJn9w/rVwCsA6/veRgiCY7gHQwv8e%2Br/7dbMLwAH%2B95SCYKYLwCb538/rv7sTIJQuAfB/Zvzf%2BdNZBAg1SwD8n8Hrv/3VAaCK/730f7dutgE4IP/7lv8vGFhqA7CG/730f7dm2gBs4X8//d8BYLUNwDr%2B99P/vRggkt4NRP7P5PV/6oH5NgD431P/d6sobuF/T/3frapYw/%2Be%2Br9bS2KT/O9f/r/gYEFs4n9f/d8DYAv/%2B%2Br/Ti2KLfzvq/87dV2sk/89zP99E2Ad//vq/05djQkA/nfA/z0AlvG/r/7v7gXHAoD8n/n8fwEA/vfW/3EBwP%2BO%2BL9bAv976/94AJD/ncj/CScA/nfB/3EAwP8u%2BT/uBKDvjvhfGgDyvzP5P8EEwP/O%2BF8SAPzvmv/jTAD67pD/pQAg/7uV/%2BNNAPzvlP8lAMD/LvpfdgLQd8f8HxkA8r97%2BV9%2BAuB/5/wfEQD876r/ZSYAfXfQ/5EAIP%2B7mf/lJgD%2Bd9L/EQDA/y77P%2BoEoO%2BO%2Bn8iAOR/d/N/9AmA/531/wQA8L/r/o8yAei7w/6/FADyv9v5P9oEwP9O%2B/8SAPC/D/6fNAHou%2BP%2BHwsA%2Bd/9/D95AuB/5/0/BgD874v/L5sA9N0D/4cCQP73I/9fPgHwvxf%2BDwEA//vk/3ETgL574v8RAMj//uT/8RMA/3vj/yEAjPr/ebm%2Bn9/OUe3a3tmvl5%2Bn4P%2BwCWDC/4X7dbo%2BWvV7pv0/AICx/P9un16Pq/13xvJ/%2BATQ7///cvFfPgYODfq/DwBD/j/8Qosn1ZdDY/4fngDa/f%2Bc9kap56b8fw6AofxfprfR6qWB/D86AXT7v4D9o68EzPj/FAAz/j/M09folT804f/%2BCaDb/wX6L0eACf93ATCU/5n/iSygx/8XE0B7/v8fHZWt%2B/r9Hz4BCuQ/O%2BqRdv%2BfTQDt%2Bb9AN%2BOUdv%2BPTgBNDmADIFaVdeb/iwmgf///kF7Gq13N/g9bAwgSgD31RrP/zyaA5vP/d3Qybr3V6//BCaDNAZz/x659vf4/nwBa7/8jAiQJAlr9P7wG0FP3aGP8uqfV/6cTQHOxBEy2IazR/xcTQKcD6GKC2tbq/x4AmmfAI7qYbD9Yo//71wDa6j5NTHQkpNP/pxNAb7ENnHA7WOv13wOgwBrQ3lWgTv8bmQA7NDFJ7ei9/ntrAK3F83%2BJKq85BeqfAPQwWQXaJwAA2A2A5hwIAEwAALB%2BAgAAEwAAmAAAwAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwEoA8lagAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEWFvd4FALwAYMJLfv4DAB53P/koAICsNz/hIOA1cbwmDgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsq9nGRq3WbFYqpVKl0mzWahuNWQDwA4DZRq3Z7vtoVZq1xBQAgOXVqIX2vo%2BCWgMAXK2NZilSNRsA4ODkn3TtD8yBB7MA4Fj7S5JVmwUAj9sfFwEAsLFitb%2BLAAC4sPQrxa/KBgBkvZqlRNUEgGxf/pOW/q9eTRoCDQBw2f43bihdCQBA1sb/3p5SDQCARfU6ws7P3ampuxHWgq8BIIPb/lHWeCdTUydR0kADAJzsf%2Bloauoo0j9sAICT6X%2BqXdH%2B5QYAONj/Vx0AXikkAACyNP/bIbADwI2I/7gBAK71v7TXAWCvpI4AALDi8C/qyf/dqW7djXoyMAsAmajId36c9AA4iXw2BABuHf8c9QA4Unc0BACZOv2fOi11dwgAQHYWgKXShzMAPkT/ngYAOLIAPAuBMkFw8jIAALJ0/8feGQB7JVV3iABAdgRwFgJlguBECQBAVhJgu76/AOD7kiIJAECG7v/duwBgT9W9wgCQ7gpQ6n7Pqb6S%2BsZZAHDhDuDf%2BwH4XdGdwgCQnQFw1A/AkaIRAADZeQJoaiq2A2oAkP0B8GoQgFdqRgAAZGYA3BgE4IaaEQAAKZbcM197gwDsyT0zCADZ3gQc2AaU3wwcvx0IAFl5CvRkGIATqW//BQAyboCjYQDkgmDJbwC2d%2Bq3y4nrdn1nO5fWawCmRqqkwgF%2BAFAvK6t6SgZ4NQrAKxU5wAcA8rfLCut2Pmf%2BHHAkBMoHwYq3AOTLiiufwi7QcAiUD4Jj9oI8AOC2agBup7AEuDsVUnJBcMNTAOpl5VU3vw14EgbAiYJFgPMAbJc11LbxJcBRGABHChYBzgPwow4AfjS%2BCzAVWgp2ApwHYF8HAPum14AfwgH4kHwV6DwAP%2BgA4AfTBwE3wgG4kXwryHkAbusAQEEOeBArBP7581/b23/9/GesIPjASwDqOgCoGw4BZyHwp7Pv/ilOEKx5CcCODgB2DG8E9x4I%2BOPvi2//%2Bw/pxwPCbw11HoC8DgDyhgHYG7z%2BL2bAEQBkdSOoKR0C/xz8AX9IB8EmW8EWbQVXpB8I%2BHnwB/wsHQQrngLwo43bQFIA9LYB/x78AX9JB8EKx8EWHQfLbwMO73FLbwZWuCHEohtCZCbAkyudGjqA2O7%2B5RMAiFb5HQVbgj/sqLoZRA6AF91eD6FX7/7lCwDIuf9egONur18O/oCX3b88BgAf7gl/3On17uAP2O383WNioBcAPOte7ff7v/9996%2BeAYAXAHzudjv4evHtX4PuX30GgJwXD4Ze6RFwvgx42ev/lRKHQVkFQO44%2BJtev6/8%2B6Z9DrXz5t/T//kNx8HCjydDv70SWt9yQ4jw4%2BUQd8IBuMMtYcKTR0Mfh/X/cYmbQoUXb4g8C4JD9YzbwjMMgNyzocdhAByXkr8rDgCyEQNKYQCUeDQswwC8lmvf09H%2BP%2BXh0Ey/IURuEfDdKADf8Xh4pgFoJg2Cd1S8JAgAcpZ/VujgXSF99aTEK2J8eknUi2EAXvCSKK9eE3ecLATWACDjxwGlYLD/QYkXRWb9VbGVJEHwKa%2BK9exl0Z8GAfjEy6I9e138nSQhMAcA2R8BT%2BKHQD4wwoUR8CJ%2BCOQjYyytX2IHwWNFnxsHABkaAY/j3gvCx8a5sQp4FvNekAc5AHBiL%2BDzBQCf%2BehYDz88uhTvXhA%2BPNqZE4GzxwOkHgjg4%2BPdkcC3MR4IqOTcBiCf80gCd2JsAzYuf29C5gHYyf4IqEkHwcdqPjq%2BXTuZB6CefQAklgHPZENgc8KvrmcegLIDAERfBhxLbgNWJv3mcuYBuO8CAK8rckEwcv9fT/rN9zMPwHMXAIi%2BEHwqdS9IY%2BIvfpR5AETOKwK%2Bk3kgYHL/tadAAwDU3SBgQyII3lHW/7oDANzLeUXAk8j3gmxE%2BKX3HADAEQdEtcCLqPeCNKL8TuECAPvOEFCJFgSPlaz/O7UfuADAO1cAyM1GISCI8kBAZTbSL3zrBACuLAM7BETYE3z6NPn%2Bn7EloBkADnPu1ORzgU%2Bfku7/n9euIwCILw4RMHEhcGdSCKw0Iv6qcuAKAC6NAMk7heNf/mYGgBkA3DgQkEsDSS9/A7vABgFw40ww7hNDEe//TUMAxgBwKAn04kAsBGqz0X9DPXALAAduDUuKgEz79d8KZhyAw%2B2c1wjUpH729q5zADhnge5ysBZpPVipNeR%2Brqn5bxYA8TKX85AB6e53Pm7CTQAcuTto1AUbzTEQVJobs/I/71HgKgDi8EvO1XrdeFBrNpuVNgqVSvs/ag8ar2P9oDe7gbsAtBGo56jL7H8YBE4D0D4d3qfNY8//3waB8wB07hJjDIRd/PdEEPgBQGc9WK7vf92m693Qv1Ovv3wUpFPC1Qq6f4a%2BgiD5RfY24fiqvw1sKuF0nVKgou99lWQha3yR5zEAQdgEUFO7MU83y7tBAABpUKD%2B/7f30mFm/70IAgBI7foPVHOwe1/i3Qc793cDKwv/J2Lg3psIx9z5N/cs7b67AGj0/ygE9Usg%2BFq3uPmurwE0d36Agkfvy/WdfP50Z2M7n9%2Bpl98/srv3bgIQGPG/O4X/AQD/AwD%2BBwDyPwDgfwDA/wCA/wGA/A8A%2BB8A8D8A4H8AIP8DAP4HAPwPAPgfAMj/AID/AQD/AwD%2BBwDyPwDgfwDA/wCA/wGA/A8A%2BB8A8D8A4H8AIP8DAP4HAPwPAPgfAMj/GQBgDv/7XPMZBAD/KwVgGv/7XFczBwD%2B9xwA/K8YgEX873NdzxgA%2BF85AAvkf59rNTMA4H9NAMzgf59rRVTxv891UxTJ/z5XURTn8L/HO8FtAKbxv8f7QG0AFvG/xyGgDcAM%2Bd/jENAGYAn/%2B1vX2gBU8b/HKbANQBH/e5wCOwBMk//9DQEdABbwv78hoAPAEv73NwR0AGjhf1%2Br2gXAzkUA%2Bd/IEqALwAL%2B93YJ0AVgCf/7ug3UA6CF/33dBegBYOUiAP8bWQL0AFjA/74uAXoALOF/X5cAPQAsvSuIzgd67wa6AGCB/O%2BpAU4BqOL/wMOj4AsArMoB%2BN9cBjgHYAb/B/4dBPUBUCX/B/4dBPUBYJED8L9JA5wDMIP/vTTAOQBV/B94dw7QD0Dqz4eQ/43W9REAlvC/d9vAAwCkvwzE/%2BaXgP0ALOF/DwdAHwApjwD8n8oA6AdgBv/7NwD6AUjzUBj/B8YPgkcBmMH/fm0CDQOQyggg/6c6AAYBmMH/vg2AQQBac/jfswEwCECKqwA6n84AGAIghb0A/J/eHkAIAEv43/X69VIATB8K4v8grWPAMQBU8b/b9XACAMYeESD/W7ACDAPA6DoQ/6e7AgwFYAn/e7MCDAXA7DqQzqe5AgwHoEr%2B92UFGA6AIQng/yDF2wAuBcBAEsD/QVqPA0cBwFASoPMpJ4DxAFTJ/4Gjj4NHA0D3sSD%2Bt2AL6FIAdGZB/G9JArwUgNY0/ndqAdCSBEDbMgD/27IDMAEAbbsB%2BN%2BSHYBJAGhZCOJ/mxaAEwDQFgXovD39vxQApVGA/G/XDmAkAJSHQfxvUQCMAoDSMIj/7QqAUQAoVqfxf8b7/08xCQDF6hz5P8s1/7CYDACVBOB/%2B/o/GQA1FsD/6fT/ZjE5AOrWAXTetP8fFlUAUGwtkv/dy38SACS/Rwz/27b/IwlAIgLwv8X9jwpA4nMBOh/Ys/8fB4DYBOD/wK7z37gAFK/N4f/MxL/I/ZcAoFhdxP8ZWf5XizoAiK0BOm/p%2BJcGQGZPiPyf1u7PzaI%2BAGSHAP63dvUfFwCJtSD%2Bt3r1FxeAYmsB/1u7%2BfNPUT8AEeMA/rfd/vEBaD8zMIf/sz/9EwAw0QP43/j0bxVNAhDJA3Te7umfDIBxHiD/Z2b6JwWg%2BNvMHP63oP0rrWI6AHT2hebwf9rtT9bBhACEI4D/s9J%2BBQC01wLT5P%2BUln7XkndPAQBDCOB/U%2B3/VUXvlADQDoUz0/jfaPdXqmo6pwiADgML8/jfkPlXHyprmzoAOieFq/P4X3/3r6nsmVIAugxcpe8aJ7/a7msAoCuDlcV5LKD8yr%2B%2BclNDs3QA0GFgaeHqPE1T1/zVaw/1dEoTAL26eW0FDpJ1/urqyrXfdPZIKwDn42BmZXX1%2BvWr88AQpenzV69fX11dWdF10Q/U/wFa%2BUmdU5B2nQAAAABJRU5ErkJggg%3D%3D%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%20maskable%22%7D%5D%7D">
+<style>
+:root{--bg:#f3f6f6;--kart:#fff;--yazi:#10201f;--soluk:#5b6b6a;--cizgi:#e1e8e7;--ana:#0f766e;--ana2:#0e4f63;--kirmizi:#dc2626;--turuncu:#ea580c;--sari:#ca8a04;--yesil:#16a34a;--fs:16px}
+body.koyu{--bg:#0d1514;--kart:#17211f;--yazi:#e8f0ef;--soluk:#9db0ae;--cizgi:#26332f}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--yazi);font:var(--fs)/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;overscroll-behavior:none;overflow-x:hidden}
+button{font:inherit;cursor:pointer;user-select:none;-webkit-user-select:none;border:0;border-radius:14px;min-height:44px;padding:10px 14px;transition:transform .1s}
+button:active{transform:scale(.95)}
+input,select,textarea{font-size:16px;font-family:inherit;width:100%;padding:12px;border:1.5px solid var(--cizgi);border-radius:12px;background:var(--kart);color:var(--yazi)}
+label{display:block;font-size:.88em;color:var(--soluk);margin:10px 0 4px}
+#ust{position:sticky;top:0;z-index:20;background:var(--ana);color:#fff;padding:calc(env(safe-area-inset-top) + 10px) 16px 12px;display:flex;align-items:center;gap:10px}
+#ust img{width:34px;height:34px;border-radius:9px}
+#ust h1{font-size:1.15em;margin:0;flex:1}
+.rozet{font-size:.78em;background:rgba(255,255,255,.18);padding:4px 9px;border-radius:20px;min-height:0}
+main{padding:14px 14px calc(96px + env(safe-area-inset-bottom));max-width:640px;margin:0 auto}
+.sayfa{display:none}.sayfa.aktif{display:block}
+.k{background:var(--kart);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.k h2{font-size:1.05em;margin:0 0 10px}
+.soluk{color:var(--soluk);font-size:.9em}
+.buyuk{font-size:1.8em;font-weight:800;letter-spacing:-.5px}
+.satir{display:flex;align-items:center;gap:10px}
+.ara{justify-content:space-between}
+.btn{background:var(--ana);color:#fff;font-weight:700;width:100%}
+.btn2{background:var(--cizgi);color:var(--yazi);font-weight:600}
+.btnk{background:#fee2e2;color:#991b1b;font-weight:600}
+.olay{display:flex;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--cizgi)}
+.olay:first-child{border-top:0}
+.tarih{min-width:54px;text-align:center;border-radius:12px;padding:6px 4px;background:var(--bg);font-weight:800;line-height:1.1}
+.tarih small{display:block;font-weight:600;font-size:.7em;color:var(--soluk)}
+.serit{width:6px;align-self:stretch;border-radius:4px}
+.etiket{display:inline-block;font-size:.75em;font-weight:700;padding:2px 8px;border-radius:20px}
+.e-gecikti{background:#fee2e2;color:#991b1b}.e-acil{background:#ffedd5;color:#9a3412}.e-yakin{background:#fef9c3;color:#854d0e}.e-normal{background:#dcfce7;color:#166534}.e-tamam{background:#dcfce7;color:#166534}.e-faiz{background:#ffedd5;color:#9a3412}.e-bekliyor{background:#e0f2fe;color:#075985}
+.uyari{border-left:6px solid var(--kirmizi);background:#fff1f1;color:#7f1d1d}
+body.koyu .uyari{background:#2a1414;color:#fecaca}
+.iyi{border-left:6px solid var(--yesil)}
+.kartk{border-radius:18px;padding:16px;color:#fff;margin-bottom:10px}
+.kartk .ust2{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.cubuk{height:8px;border-radius:6px;background:rgba(255,255,255,.3);overflow:hidden;margin:10px 0}
+.cubuk i{display:block;height:100%;background:#fff}
+.izgara{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:.92em}
+.dugmeler{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.dugmeler button{flex:1;min-width:90px;background:rgba(255,255,255,.2);color:#fff;font-weight:700}
+#alt{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--kart);border-top:1px solid var(--cizgi);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+#alt button{flex:1;background:none;color:var(--soluk);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.72em;padding:6px 0;border-radius:12px}
+#alt button b{font-size:1.5em;line-height:1}
+#alt button.sec{color:var(--ana);font-weight:800;background:rgba(15,118,110,.1)}
+#perde{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:50;display:none;align-items:flex-end;justify-content:center}
+#perde.acik{display:flex}
+#sayfaAlt{background:var(--kart);width:100%;max-width:640px;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));max-height:88vh;overflow:auto}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom));background:#111;color:#fff;padding:10px 16px;border-radius:14px;z-index:60;display:none;max-width:90%;text-align:center}
+#cevrim{display:none;background:#78350f;color:#fff;text-align:center;font-size:.85em;padding:4px}
+#yeniSurum{display:none;background:var(--ana2);color:#fff;text-align:center;padding:8px}
+#acilis{position:fixed;inset:0;background:linear-gradient(135deg,#0f766e,#0e4f63);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;transition:opacity .3s}
+#acilis img{width:96px;height:96px;border-radius:24px;margin-bottom:12px}
+.secim{display:flex;gap:6px;flex-wrap:wrap}
+.secim button{background:var(--bg);color:var(--yazi);font-weight:600;padding:8px 12px;min-height:40px}
+.secim button.sec{background:var(--ana);color:#fff}
+.tablo{width:100%;border-collapse:collapse;font-size:.92em}
+.tablo td{padding:8px 4px;border-top:1px solid var(--cizgi)}
+.tablo td:last-child{text-align:right;font-weight:700}
+.anahtar{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+.hat{border:1px solid var(--cizgi);border-radius:14px;padding:10px;margin:8px 0}
+.renkler{display:flex;gap:8px;flex-wrap:wrap}
+.renkler button{width:40px;height:40px;min-height:40px;padding:0;border-radius:50%;border:3px solid transparent}
+.renkler button.sec{border-color:var(--yazi)}
+@media (min-width:520px){.izgara{grid-template-columns:1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="acilis" aria-hidden="true"><img alt="" src="data:image/png;base64,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"><b style="font-size:1.3em">Kart Pusulası</b></div>
+<header id="ust">
+  <img alt="Kart Pusulası simgesi" src="data:image/png;base64,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">
+  <h1>Kart Pusulası</h1>
+  <button class="rozet" id="bildRozet" aria-label="Bildirim durumu" onclick="git('ayarlar')">🔕</button>
+</header>
+<div id="cevrim">📶 Çevrimdışı — veriler telefonda, çalışmaya devam eder</div>
+<div id="yeniSurum" onclick="location.reload()">🔄 Yeni sürüm hazır — dokun, yenile</div>
+<main>
+  <section class="sayfa" id="s-ana"></section>
+  <section class="sayfa" id="s-kartlar"></section>
+  <section class="sayfa" id="s-avans"></section>
+  <section class="sayfa" id="s-plan"></section>
+  <section class="sayfa" id="s-ayarlar"></section>
+</main>
+<nav id="alt" aria-label="Alt menü">
+  <button data-s="ana" aria-label="Bugün"><b>🏠</b>Bugün</button>
+  <button data-s="kartlar" aria-label="Kartlar"><b>💳</b>Kartlar</button>
+  <button data-s="avans" aria-label="Nakit avans"><b>💸</b>Avans</button>
+  <button data-s="plan" aria-label="Aylık plan"><b>🧮</b>Plan</button>
+  <button data-s="ayarlar" aria-label="Ayarlar"><b>⚙️</b>Ayarlar</button>
+</nav>
+<div id="perde" onclick="if(event.target===this)kapat()"><div id="sayfaAlt" role="dialog" aria-modal="true"></div></div>
+<div id="toast" role="status"></div>
+
+<script>
+/* ===== Kart Pusulası — Barış Öğretmen ===== */
+var SURUM=1;
+var YENILIKLER=['Bütün kartların tek ekranda, en acil ödeme en üstte','“Hangi karttan nakit avans?” akıllı önerisi ve gerçek maliyet hesabı','Aylık plan: gelir, kira ve asgari ödemeler tek bakışta','Kasa üzerinden ödeme günü bildirimleri + takvime ekleme'];
+var KASA='https://baris-kasa.barilkay466.workers.dev';
+var UYG='kartpusula';
+var VAPID='BIXVUEpl8HJuKI61AtSnjS3WTdVvW7-TZeCZUTwJyw1Gd5hxFrUMvt95U_LHmEplAhaf9hqF0tS7zX3JRAcUfEk';
+var AYLAR=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
+var GUNLER=['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
+var RENKLER=['#0b4ea2','#dc0005','#00855f','#7a1a54','#00a651','#8e3a8a','#004990','#1f2937','#c2410c','#0f766e'];
+
+function kasa(){try{var u=localStorage.getItem('zkasa_url');if(u)return u.replace(/\/+$/,'');}catch(e){}return KASA;}
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+
+/* ---------- veri ---------- */
+var BOS={kartlar:[],gelir:{maas:0,ek:0},gider:{kira:0,diger:0},ayar:{faiz:4.25,vergi:30,komisyon:5,makas:2},odemeler:[]};
+var V;
+function yukle(){try{V=JSON.parse(ls('kp_veri')||'null');}catch(e){V=null;}if(!V)V=JSON.parse(JSON.stringify(BOS));
+  ['gelir','gider','ayar'].forEach(function(k){V[k]=Object.assign({},BOS[k],V[k]||{});});V.kartlar=V.kartlar||[];V.odemeler=V.odemeler||[];}
+function kaydet(){ls('kp_veri',JSON.stringify(V));otoHatirlatmaPlanla();}
+function yeniId(){return 'k'+Date.now().toString(36)+Math.random().toString(36).slice(2,5);}
+
+/* ---------- sayı & tarih ---------- */
+function sayi(s){if(typeof s==='number')return s;s=String(s||'').replace(/\s|TL|₺/gi,'');if(!s)return 0;
+  if(s.indexOf(',')>=0)s=s.replace(/\./g,'').replace(',','.');else if(/^\d{1,3}(\.\d{3})+$/.test(s))s=s.replace(/\./g,'');var n=parseFloat(s);return isNaN(n)?0:n;}
+function tl(n,ond){return (Number(n)||0).toLocaleString('tr-TR',{minimumFractionDigits:ond?2:0,maximumFractionDigits:ond?2:0})+' TL';}
+function bugun(){var d=new Date();d.setHours(0,0,0,0);return d;}
+function tarihOku(s){if(!s)return null;var p=String(s).split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+function tarihYaz(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function gunFark(d){return Math.round((d-bugun())/864e5);}
+function trTarih(d,gunlu){return d.getDate()+' '+AYLAR[d.getMonth()]+(gunlu?' '+GUNLER[d.getDay()]:'');}
+function ayinGunu(y,m,g){var son=new Date(y,m+1,0).getDate();return new Date(y,m,Math.min(g,son));}
+function sonrakiGun(g,sonra){var d=ayinGunu(sonra.getFullYear(),sonra.getMonth(),g);if(d<=sonra)d=ayinGunu(sonra.getFullYear(),sonra.getMonth()+1,g);return d;}
+function kalanYazi(n){if(n<0)return Math.abs(n)+' gün geçti';if(n===0)return 'BUGÜN';if(n===1)return 'yarın';return n+' gün kaldı';}
+
+/* ---------- kart mantığı ---------- */
+function oran(c){return (c.limit||0)>50000?0.40:0.20;}
+function tahminiAsgari(c){var b=c.tahminiEkstre!=null&&c.tahminiEkstre!==''?sayi(c.tahminiEkstre):c.toplamBorc;return Math.max(0,Math.round(b*oran(c)));}
+function durum(c){
+  var t=tarihOku(c.sonOdeme),d=t?gunFark(t):99;
+  if(c.ekstreBekleniyor)return{tip:d<0?'faiz':'bekliyor',d:d,yazi:'Ekstre bekleniyor'};
+  if((c.kalanEkstre||0)<=0.5)return{tip:'tamam',d:d,yazi:'✅ Ödendi'};
+  if(d<0){if(c.kalanAsgari==null||c.kalanAsgari==='')return{tip:'gecikti',d:d,yazi:'⚠️ Asgari ödendi mi? Kontrol et',bilinmiyor:true};
+    if(c.kalanAsgari>0.5)return{tip:'gecikti',d:d,yazi:'⛔ GECİKMİŞ — asgari ödenmedi'};
+    return{tip:'faiz',d:d,yazi:'🟠 Asgari ödendi, kalan faizleniyor'};}
+  if(d<=3)return{tip:'acil',d:d,yazi:'🔴 '+kalanYazi(d)};
+  if(d<=7)return{tip:'yakin',d:d,yazi:'🟡 '+kalanYazi(d)};
+  return{tip:'normal',d:d,yazi:'🟢 '+kalanYazi(d)};
+}
+function olaylar(){
+  var L=[],b=bugun();
+  V.kartlar.forEach(function(c){
+    var s=durum(c),t=tarihOku(c.sonOdeme);
+    if(s.tip==='gecikti'){L.push({c:c,tarih:t,tutar:s.bilinmiyor?c.kalanEkstre:c.kalanAsgari,tam:c.kalanEkstre,tip:'gecikti',bilinmiyor:s.bilinmiyor});
+      L.push({c:c,tarih:sonrakiGun(c.odemeGunu,b),tutar:tahminiAsgari(c),tam:c.toplamBorc,tahmini:true});}
+    else if(s.tip==='faiz'||(s.tip==='tamam'&&s.d<0)){L.push({c:c,tarih:sonrakiGun(c.odemeGunu,b),tutar:tahminiAsgari(c),tam:c.toplamBorc,tahmini:true});}
+    else if(s.tip==='tamam'){L.push({c:c,tarih:sonrakiGun(c.odemeGunu,t),tutar:tahminiAsgari(c),tam:c.toplamBorc,tahmini:true});}
+    else if(s.tip==='bekliyor'){L.push({c:c,tarih:t,tutar:tahminiAsgari(c),tam:c.tahminiEkstre!=null&&c.tahminiEkstre!==''?sayi(c.tahminiEkstre):c.toplamBorc,tahmini:true});}
+    else L.push({c:c,tarih:t,tutar:c.kalanAsgari!=null&&c.kalanAsgari!==''?c.kalanAsgari:tahminiAsgari(c),tam:c.kalanEkstre});
+  });
+  L.forEach(function(o){o.d=gunFark(o.tarih);if(!o.tip)o.tip=o.d<=3?'acil':o.d<=7?'yakin':'normal';});
+  L.sort(function(a,b){if(a.tip==='gecikti'&&b.tip!=='gecikti')return -1;if(b.tip==='gecikti'&&a.tip!=='gecikti')return 1;return a.tarih-b.tarih;});
+  return L;
+}
+function toplamlar(){var t={borc:0,limit:0,kul:0};V.kartlar.forEach(function(c){t.borc+=+c.toplamBorc||0;t.limit+=+c.limit||0;t.kul+=+c.kullanilabilir||0;});return t;}
+
+/* ---------- ekranlar ---------- */
+function olaySatiri(o,tus){
+  var c=o.c,etk=o.tip==='gecikti'?(o.bilinmiyor?'Kontrol et':'GECİKMİŞ'):kalanYazi(o.d);
+  return '<div class="olay"><div class="tarih">'+o.tarih.getDate()+'<small>'+AYLAR[o.tarih.getMonth()].slice(0,3)+'</small></div>'+
+  '<div class="serit" style="background:'+esc(c.renk||'#0f766e')+'"></div>'+
+  '<div style="flex:1;min-width:0"><b>'+esc(c.banka)+'</b> <span class="etiket e-'+o.tip+'">'+etk+'</span><br>'+
+  '<span class="soluk">'+(o.tip==='gecikti'&&o.bilinmiyor?'Kalan ekstre ':'Asgari'+(o.tahmini?' (tahmini)':'')+' ')+'</span><b>'+tl(o.tutar)+'</b>'+
+  (o.tam&&!(o.tip==='gecikti'&&o.bilinmiyor)?'<br><span class="soluk">Tamamı '+tl(o.tam)+'</span>':'')+'</div>'+
+  (tus?'<button class="btn2" style="padding:8px 10px" aria-label="'+esc(c.banka)+' ödedim" onclick="odeAc(\''+c.id+'\')">✓ Ödedim</button>':'')+'</div>';
+}
+function cizAna(){
+  var el=$('s-ana');
+  if(!V.kartlar.length){el.innerHTML='<div class="k"><h2>👋 Hoş geldin</h2><p>Kartlarını ekleyerek başla. Sana bir “kart bilgileri” metni verildiyse tek dokunuşla yükleyebilirsin.</p><button class="btn" onclick="iceAktarAc()">📥 Kart bilgilerimi yapıştır</button><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="kartDuzenle()">➕ Kartı elle ekle</button></div>';return;}
+  var L=olaylar(),b=bugun(),gec=L.filter(function(o){return o.tip==='gecikti';}),
+      ay=L.filter(function(o){return o.tip!=='gecikti'&&o.d>=0&&o.d<=30;}),t=toplamlar();
+  var ayToplam=ay.reduce(function(s,o){return s+(+o.tutar||0);},0)+gec.reduce(function(s,o){return s+(o.bilinmiyor?0:+o.tutar||0);},0);
+  var el2=elde();
+  var h='<div class="soluk" style="margin:2px 4px 10px">'+trTarih(b,true)+' '+b.getFullYear()+'</div>';
+  if(gec.length){h+='<div class="k uyari"><h2>🚨 Önce bunlar</h2>';gec.forEach(function(o){h+=olaySatiri(o,true);});
+    h+='<p style="margin:10px 0 0;font-size:.92em">Bugün bankayı ara: <b>“Ekstre borcumu taksitlendirmek / yapılandırmak istiyorum.”</b> Gecikme uzarsa kart kapanır ve kayda geçer.</p></div>';}
+  var ilk=ay[0];
+  if(ilk){h+='<div class="k" style="border-top:6px solid '+esc(ilk.c.renk)+'"><div class="soluk">📅 Sıradaki ödeme</div><div class="satir ara"><div><div class="buyuk">'+esc(ilk.c.banka)+'</div><div>'+trTarih(ilk.tarih,true)+' · <b>'+kalanYazi(ilk.d)+'</b></div></div></div>'+
+    '<table class="tablo" style="margin-top:8px"><tr><td>Asgari'+(ilk.tahmini?' (tahmini)':'')+'</td><td>'+tl(ilk.tutar)+'</td></tr><tr><td>Tamamı</td><td>'+tl(ilk.tam)+'</td></tr></table>'+
+    '<div style="height:10px"></div><button class="btn" onclick="odeAc(\''+ilk.c.id+'\')">✓ Ödedim</button></div>';}
+  h+='<div class="k"><h2>🗓️ Önümüzdeki 30 gün</h2>'+(ay.length?ay.map(function(o){return olaySatiri(o,false);}).join(''):'<p class="soluk">30 gün içinde ödeme yok.</p>')+'</div>';
+  var acik=ayToplam-el2;
+  h+='<div class="k '+(acik>0?'uyari':'iyi')+'"><h2>🧮 Bu ayın özeti</h2><table class="tablo">'+
+    '<tr><td>Asgari ödemeler toplamı</td><td>'+tl(ayToplam)+'</td></tr>'+
+    '<tr><td>Kira ve giderlerden sonra elinde</td><td>'+(el2?tl(el2):'<a href="#plan">gelirini yaz</a>')+'</td></tr>'+
+    (el2?'<tr><td>'+(acik>0?'⛔ Açık':'✅ Artan')+'</td><td>'+tl(Math.abs(acik))+'</td></tr>':'')+'</table>'+
+    (acik>0&&el2?'<p style="margin:10px 0 0;font-size:.92em">Bu açık nakit avansla kapanmaz, her ay büyür. <a href="#plan">🆘 Çıkış yolunu gör</a></p>':'')+'</div>';
+  h+='<div class="k"><div class="izgara"><div><div class="soluk">Toplam borç</div><b>'+tl(t.borc)+'</b></div><div><div class="soluk">Toplam limit</div><b>'+tl(t.limit)+'</b></div><div><div class="soluk">Kullanılabilir</div><b>'+tl(t.kul)+'</b></div></div></div>';
+  el.innerHTML=h;
+}
+function cizKartlar(){
+  var el=$('s-kartlar'),h='<div class="satir ara" style="margin-bottom:10px"><b style="font-size:1.1em">💳 Kartlarım ('+V.kartlar.length+')</b><button class="btn2" onclick="kartDuzenle()" aria-label="Kart ekle">➕ Ekle</button></div>';
+  var sirali=V.kartlar.slice().sort(function(a,b){var r={gecikti:0,acil:1,yakin:2,bekliyor:3,normal:4,faiz:5,tamam:6};var x=durum(a),y=durum(b);return (r[x.tip]-r[y.tip])||(tarihOku(a.sonOdeme)-tarihOku(b.sonOdeme));});
+  sirali.forEach(function(c){
+    var s=durum(c),dolu=c.limit?Math.min(100,Math.round(((c.limit-(c.kullanilabilir||0))/c.limit)*100)):0;
+    h+='<div class="kartk" style="background:linear-gradient(135deg,'+esc(c.renk)+','+esc(c.renk)+'cc)"><div class="ust2"><div><b style="font-size:1.15em">'+esc(c.banka)+'</b><div style="opacity:.85;font-size:.9em">'+esc(c.ad||'')+'</div></div><span class="etiket" style="background:#fff;color:#111">'+s.yazi+'</span></div>'+
+    '<div class="cubuk" aria-label="Limit doluluğu yüzde '+dolu+'"><i style="width:'+dolu+'%"></i></div>'+
+    '<div class="izgara"><div>Toplam borç<br><b>'+tl(c.toplamBorc)+'</b></div><div>Kullanılabilir<br><b>'+tl(c.kullanilabilir)+'</b></div>'+
+    '<div>'+(c.ekstreBekleniyor?'Tahmini ekstre':'Kalan ekstre')+'<br><b>'+tl(c.ekstreBekleniyor?(c.tahminiEkstre!=null&&c.tahminiEkstre!==''?sayi(c.tahminiEkstre):c.toplamBorc):c.kalanEkstre)+'</b></div>'+
+    '<div>Kalan asgari<br><b>'+(c.ekstreBekleniyor?tl(tahminiAsgari(c))+' ~':(c.kalanAsgari==null||c.kalanAsgari===''?'❔ bilinmiyor':tl(c.kalanAsgari)))+'</b></div>'+
+    '<div>Son ödeme<br><b>'+(c.sonOdeme?trTarih(tarihOku(c.sonOdeme)):'—')+'</b></div><div>Kesim / ödeme günü<br><b>'+c.kesimGunu+' / '+c.odemeGunu+'</b></div></div>'+
+    '<div class="dugmeler"><button onclick="odeAc(\''+c.id+'\')">✓ Ödedim</button><button onclick="ekstreAc(\''+c.id+'\')">🧾 Yeni ekstre</button><button onclick="kartDuzenle(\''+c.id+'\')">✏️ Düzenle</button></div></div>';
+  });
+  if(!V.kartlar.length)h+='<div class="k"><p>Henüz kart yok.</p><button class="btn" onclick="iceAktarAc()">📥 Kart bilgilerimi yapıştır</button></div>';
+  el.innerHTML=h;
+}
+/* --- nakit avans --- */
+var AV={tutar:25000,taksit:6};
+function avansOneri(tutar){
+  var b=bugun();
+  return V.kartlar.map(function(c){
+    var s=durum(c),yeter=(+c.kullanilabilir||0)>=tutar,kotu=s.tip==='gecikti';
+    var kesim=sonrakiGun(c.kesimGunu,new Date(b.getTime()-864e5)),ilkOdeme=sonrakiGun(c.odemeGunu,kesim),nefes=gunFark(ilkOdeme);
+    var puan=(yeter?1000:0)-(kotu?600:0)+nefes*6+Math.min(+c.kullanilabilir||0,200000)/2500;
+    var neden=[];
+    if(!yeter)neden.push('⛔ Limit yetmez ('+tl(c.kullanilabilir)+')');
+    if(kotu)neden.push('⛔ Gecikmesi var — bu karta yük bindirme');
+    if(yeter&&!kotu)neden.push('✅ İlk taksit '+trTarih(ilkOdeme)+' ödemesine girer · '+nefes+' gün nefes');
+    if(yeter)neden.push('Kullanılabilir '+tl(c.kullanilabilir));
+    return{c:c,puan:puan,neden:neden,uygun:yeter&&!kotu};
+  }).sort(function(a,b){return b.puan-a.puan;});
+}
+function taksitHesap(P,n,yuzde){var r=yuzde/100;if(!r)return P/n;return P*r/(1-Math.pow(1+r,-n));}
+function cizAvans(){
+  var A=V.ayar,el=$('s-avans'),r=A.faiz*(1+A.vergi/100);
+  var h='<div class="k"><h2>💸 Nakit avans: hangi karttan?</h2><label for="avT">Ne kadar lazım?</label><input id="avT" inputmode="decimal" value="'+AV.tutar.toLocaleString('tr-TR')+'" onchange="AV.tutar=sayi(this.value)||0;cizAvans()">'+
+    '<label>Kaç taksit?</label><div class="secim">'+[3,6,9,12].map(function(n){return '<button class="'+(AV.taksit===n?'sec':'')+'" onclick="AV.taksit='+n+';cizAvans()">'+n+' ay</button>';}).join('')+'</div></div>';
+  var L=avansOneri(AV.tutar);
+  h+='<div class="k"><h2>🧭 Öneri sırası</h2>';
+  L.forEach(function(o,i){h+='<div class="olay" style="'+(o.uygun?'':'opacity:.55')+'"><div class="tarih">'+(o.uygun?(i+1)+'.':'—')+'</div><div class="serit" style="background:'+esc(o.c.renk)+'"></div><div style="flex:1"><b>'+esc(o.c.banka)+'</b>'+(i===0&&o.uygun?' <span class="etiket e-normal">EN UYGUN</span>':'')+'<br><span class="soluk">'+o.neden.join('<br>')+'</span></div></div>';});
+  h+='<p class="soluk" style="margin:8px 0 0">Nakit avans limiti bankaya göre kart limitinden düşüktür (sende genelde 25.000 TL).</p></div>';
+  var P=AV.tutar,n=AV.taksit,tk=taksitHesap(P,n,r),top=tk*n,m1=top-P;
+  var k=(A.komisyon+A.makas)/100,harca=k<1?P/(1-k):P,m2=harca-P;
+  h+='<div class="k"><h2>⚖️ Gerçek maliyet ('+tl(P)+' eline geçsin diye)</h2><table class="tablo">'+
+    '<tr><td><b>1) Taksitli nakit avans</b><br><span class="soluk">aylık %'+r.toFixed(2).replace('.',',')+' (faiz+vergi), '+n+' taksit</span></td><td>'+tl(tk)+' × '+n+'</td></tr>'+
+    '<tr><td>Toplam geri ödeme</td><td>'+tl(top)+'</td></tr><tr><td>⛔ Kaybın</td><td style="color:var(--kirmizi)">'+tl(m1)+'</td></tr>'+
+    '<tr><td><b>2) Kartla altın al → sat</b><br><span class="soluk">%'+A.komisyon+' komisyon + %'+A.makas+' alış-satış farkı</span></td><td>'+tl(harca)+' harca</td></tr>'+
+    '<tr><td>⛔ Peşin kaybın</td><td style="color:var(--kirmizi)">'+tl(m2)+'</td></tr>'+
+    '<tr><td colspan="2" class="soluk" style="text-align:left;font-weight:400">Bu harcama ekstrede tam ödenmezse üstüne her ay ~%'+r.toFixed(1).replace('.',',')+' faiz daha biner.</td></tr></table></div>';
+  var yil=Math.round(Math.min(m1/n,m2)*12);
+  h+='<div class="k uyari"><h2>🔁 Döndürmenin gerçeği</h2><p style="margin:0">Her ay bu yolla '+tl(P)+' döndürürsen yalnız masrafa yılda yaklaşık <b>'+tl(yil)+'</b> gider; ana borç hiç azalmaz. Döndürmek zaman kazandırır ama borcu büyütür. Kalıcı çözüm için <a href="#plan">🧮 Plan → 🆘 Çıkış yolu</a>.</p></div>';
+  h+='<div class="k"><h2>⚙️ Oranlar</h2><div class="izgara">'+
+   [['faiz','Aylık faiz %'],['vergi','KKDF+BSMV %'],['komisyon','Altın komisyonu %'],['makas','Alış-satış farkı %']].map(function(x){return '<div><label>'+x[1]+'</label><input inputmode="decimal" value="'+String(A[x[0]]).replace('.',',')+'" onchange="V.ayar.'+x[0]+'=sayi(this.value);kaydet();cizAvans()"></div>';}).join('')+'</div>'+
+   '<p class="soluk">Nakit avans azami faizi bugün aylık %4,25; vergiler (KKDF %15 + BSMV %15) üstüne eklenir.</p></div>';
+  el.innerHTML=h;
+}
+/* --- plan --- */
+function elde(){var g=V.gelir,x=V.gider;var gel=(+g.maas||0)+(+g.ek||0);if(!gel)return 0;return gel-(+x.kira||0)-(+x.diger||0);}
+function cizPlan(){
+  var el=$('s-plan'),g=V.gelir,x=V.gider;
+  var h='<div class="k"><h2>💰 Aylık gelir ve gider</h2><div class="izgara">'+
+   [['gelir','maas','Maaş / ana gelir'],['gelir','ek','Ek gelir'],['gider','kira','Kira'],['gider','diger','Fatura, mutfak, yol']].map(function(a){return '<div><label>'+a[2]+'</label><input inputmode="decimal" value="'+((V[a[0]][a[1]]||0)?(+V[a[0]][a[1]]).toLocaleString('tr-TR'):'')+'" placeholder="0" onchange="V.'+a[0]+'.'+a[1]+'=sayi(this.value);kaydet();cizPlan()"></div>';}).join('')+'</div></div>';
+  var kalan=elde(),L=olaylar().filter(function(o){return o.tip==='gecikti'||o.d<=30;});
+  var on=L.slice().sort(function(a,b){var p=function(o){return o.tip==='gecikti'?0:(o.tutar<5000?1:2);};return (p(a)-p(b))||(a.tarih-b.tarih);});
+  var para=kalan,ac=0;
+  h+='<div class="k"><h2>🎯 Paranı bu sırayla dağıt</h2><p class="soluk" style="margin-top:0">1) Gecikmiş olanlar · 2) Küçük borçlar (kapat, kurtul) · 3) Tarih sırasıyla asgariler</p><table class="tablo">';
+  on.forEach(function(o){var ist=o.bilinmiyor?0:+o.tutar||0,ver=Math.max(0,Math.min(para,ist));para-=ver;var eks=ist-ver;ac+=eks;
+    h+='<tr><td><span class="serit" style="display:inline-block;width:6px;height:14px;background:'+esc(o.c.renk)+';margin-right:6px"></span><b>'+esc(o.c.banka)+'</b> · '+trTarih(o.tarih)+(o.bilinmiyor?'<br><span class="soluk">Asgari bilinmiyor — bankadan öğren</span>':'<br><span class="soluk">Gereken '+tl(ist)+'</span>')+'</td><td>'+(o.bilinmiyor?'❔':eks>0.5?'⛔ '+tl(eks)+' eksik':'✅ '+tl(ver))+'</td></tr>';});
+  h+='</table>'+(kalan?'<p style="margin:10px 0 0"><b>'+(ac>0?'⛔ Toplam açık: '+tl(ac):'✅ Hepsi karşılanıyor, artan: '+tl(para))+'</b></p>':'<p class="soluk">Hesap için üstte gelirini yaz.</p>')+'</div>';
+  h+='<div class="k uyari"><h2>🆘 Çıkış yolu — adım adım</h2><ol style="padding-left:20px;margin:0">'+
+   '<li><b>Altın döngüsünü durdur.</b> Her tur %5+ kaybettirir, borç küçülmez.</li>'+
+   '<li><b>Bankaları sırayla ara</b> (önce gecikmiş olan): “Kart borcumu taksitlendirmek / yapılandırmak istiyorum.” Bazı bankalar uygulamada “Ekstre böldür” sunuyor.</li>'+
+   '<li><b>Asgariyi kaçırma.</b> Asgari üst üste ödenmezse kart kullanıma kapanır; uzun gecikmede yasal takip başlar.</li>'+
+   '<li><b>Tek bir borç kapatma kredisi</b> teklifi al. Faizi nakit avanstan düşükse kartları kapatıp tek taksite in.</li>'+
+   '<li><b>Küçük kartları tamamen kapat</b> (moral ve takip kolaylığı), sonra en büyük borca yüklen.</li>'+
+   '<li><b>Yalnız değilsin.</b> Güvendiğin biriyle konuş; panik anında karar verme, önce bu ekrana bak.</li></ol></div>';
+  el.innerHTML=h;
+}
+/* --- ayarlar --- */
+function cizAyarlar(){
+  var el=$('s-ayarlar'),st=standalone();
+  var h='<div class="k"><h2>🔔 Bildirimler</h2><button class="btn" id="bildAcBtn" onclick="bildirimAc()" aria-label="Bildirimleri aç">🔔 Bildirimleri aç</button>'+
+   '<p class="soluk">iPhone\'da önce Safari → Paylaş (□↑) → Ana Ekrana Ekle, sonra ana ekrandaki simgeden açıp bu düğmeye dokunun.</p>'+
+   '<button class="btn2" style="width:100%" onclick="bildirimKapat()">🔕 Bildirimleri kapat</button></div>';
+  h+='<div class="k"><h2>🔔 Bildirim durumu</h2><div id="bildDurum" class="soluk">Yükleniyor…</div><div class="dugmeler" style="margin-top:10px"><button class="btn2" style="flex:1" onclick="aboneOl(true)">📲 Bu cihazı kaydet</button><button class="btn2" style="flex:1" onclick="banaDene()">🧪 Bana dene</button></div></div>';
+  h+='<div class="k"><h2>⏰ Hatırlatmalar</h2><p class="soluk" style="margin-top:0">Kart ödeme günleri için 2 gün önce ve o gün sabah bildirim. Şifre yalnız bu telefonda saklanır.</p>'+
+   '<label for="hSifre">🔒 Kasa şifresi</label><input id="hSifre" type="password" value="'+esc(ls('kp_sifre')||'')+'" autocomplete="off">'+
+   '<div class="anahtar"><span>Şifreyi bu telefonda hatırla ve ödeme günlerini kendiliğinden güncelle</span><input type="checkbox" id="hHatirla" style="width:28px;height:28px" '+(ls('kp_sifre')?'checked':'')+'></div>'+
+   '<button class="btn" onclick="hatirlatmaYukle()">📥 Kasadaki listeyi getir</button><div id="hListe"></div>'+
+   '<div class="soluk" style="margin-top:10px">Hazır öneriler (dokun, eklensin):</div><div class="secim" style="margin-top:6px">'+
+   ONERILER.map(function(o,i){return '<button onclick="oneriEkle('+i+')">'+o.saat+' '+esc(o.baslik)+'</button>';}).join('')+'</div>'+
+   '<div class="dugmeler"><button class="btn2" style="flex:1" onclick="hatirlatmaEkle()">➕ Ekle</button><button class="btn2" style="flex:1" onclick="otoHatirlatma(true)">🔁 Kart tarihlerinden üret</button></div>'+
+   '<div style="height:8px"></div><button class="btn" onclick="hatirlatmaKaydet()">💾 Kasaya kaydet</button></div>';
+  h+='<div class="k"><h2>📅 Telefon takvimine ekle</h2><p class="soluk" style="margin-top:0">En garanti yol: her kart için aylık tekrar eden etkinlik, 2 gün önce ve o sabah uyarı.</p><button class="btn" onclick="takvimIndir()">📅 Takvim dosyasını aç</button></div>';
+  h+='<div class="k"><h2>💾 Verilerim</h2><button class="btn2" style="width:100%" onclick="iceAktarAc()">📥 Kart bilgilerini yapıştır / dosyadan yükle</button><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="yedekIndir()">📤 Yedeği indir (JSON)</button><div style="height:8px"></div><button class="btnk" style="width:100%" onclick="hepsiniSil()">🗑️ Tüm verileri sil</button></div>';
+  h+='<div class="k"><h2>🧰 Araçlar</h2><div class="anahtar"><span>Yazı boyutu</span><span><button class="btn2" onclick="yazi(-1)" aria-label="Yazıyı küçült">A−</button> <button class="btn2" onclick="yazi(1)" aria-label="Yazıyı büyüt">A+</button></span></div>'+
+   '<div class="anahtar"><span>Koyu tema</span><input type="checkbox" style="width:28px;height:28px" '+(ls('kp_koyu')==='1'?'checked':'')+' onchange="ls(\'kp_koyu\',this.checked?\'1\':\'0\');tema()"></div>'+
+   '<button class="btn2" style="width:100%" onclick="paylas()">📲 Uygulamayı paylaş</button>'+(st?'':'<div style="height:8px"></div><button class="btn2" style="width:100%" onclick="anaEkranYardim()">➕ Ana ekrana ekle yardımı</button>')+'</div>';
+  h+='<div class="k"><h2>ℹ️ Hakkında</h2><div class="satir"><img alt="" src="'+document.querySelector('#ust img').src+'" style="width:48px;height:48px;border-radius:12px"><div><b>Kart Pusulası</b><br><span class="soluk">Sürüm '+SURUM+' · uyg: '+UYG+'</span></div></div>'+
+   '<p><button class="rozet" style="background:var(--bg);color:var(--yazi)" onclick="bildirimAc()" id="hakBild">…</button></p>'+
+   '<p class="soluk">Kasa: '+esc(kasa())+'</p><button class="btn2" style="width:100%" onclick="kasaDegis()">🌐 Kasa adresini değiştir</button><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="yeniliklerGoster()">🆕 Yeni neler var?</button>'+
+   '<p class="soluk">🔒 Gizlilik: Kart ve borç bilgilerin yalnız bu telefonda saklanır, hiçbir sunucuya gönderilmez. Kasaya yalnız bildirim aboneliği ve (açarsan) tutarsız hatırlatma metinleri gider.</p></div>';
+  el.innerHTML=h;bildirimDurumGoster();rozet();
+}
+
+/* ---------- sayfa geçişi ---------- */
+var SAYFALAR={ana:cizAna,kartlar:cizKartlar,avans:cizAvans,plan:cizPlan,ayarlar:cizAyarlar};
+function git(s){if(!SAYFALAR[s])s='ana';if(location.hash!=='#'+s){history.replaceState(null,'','#'+s);}
+  document.querySelectorAll('.sayfa').forEach(function(x){x.classList.toggle('aktif',x.id==='s-'+s);});
+  document.querySelectorAll('#alt button').forEach(function(b){b.classList.toggle('sec',b.dataset.s===s);b.setAttribute('aria-current',b.dataset.s===s?'page':'false');});
+  SAYFALAR[s]();window.scrollTo(0,0);}
+function yenile(){var a=(location.hash||'#ana').slice(1);SAYFALAR[SAYFALAR[a]?a:'ana']();}
+document.querySelectorAll('#alt button').forEach(function(b){b.onclick=function(){git(b.dataset.s);};});
+window.addEventListener('hashchange',function(){git((location.hash||'#ana').slice(1));});
+
+/* ---------- alt sayfa (modal) ---------- */
+function ac(html){$('sayfaAlt').innerHTML=html;$('perde').classList.add('acik');}
+function kapat(){$('perde').classList.remove('acik');}
+var toastZ;function toast(m){var t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(toastZ);toastZ=setTimeout(function(){t.style.display='none';},3000);}
+function kartBul(id){return V.kartlar.filter(function(c){return c.id===id;})[0];}
+
+function odeAc(id){var c=kartBul(id);if(!c)return;var s=durum(c),asg=c.ekstreBekleniyor?tahminiAsgari(c):(c.kalanAsgari||0),tam=c.ekstreBekleniyor?c.toplamBorc:c.kalanEkstre;
+  ac('<h2 style="margin-top:0">✓ '+esc(c.banka)+' — ödeme</h2><label for="odT">Ne kadar ödedin?</label><input id="odT" inputmode="decimal" placeholder="0">'+
+  '<div class="secim" style="margin-top:8px">'+(asg?'<button onclick="$(\'odT\').value=\''+asg.toLocaleString('tr-TR')+'\'">Asgari '+tl(asg)+'</button>':'')+(tam?'<button onclick="$(\'odT\').value=\''+(+tam).toLocaleString('tr-TR',{maximumFractionDigits:2})+'\'">Tamamı '+tl(tam)+'</button>':'')+'</div>'+
+  (s.bilinmiyor?'<div style="height:8px"></div><button class="btn2" style="width:100%" onclick="asgariOdenmis(\''+id+'\')">✅ Asgariyi zaten ödemişim</button>':'')+
+  '<div style="height:12px"></div><button class="btn" onclick="odeKaydet(\''+id+'\')">💾 Kaydet</button><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="kapat()">Vazgeç</button>');}
+function asgariOdenmis(id){var c=kartBul(id);c.kalanAsgari=0;kaydet();kapat();yenile();toast('Kaydedildi ✅');}
+function odeKaydet(id){var c=kartBul(id),t=sayi($('odT').value);if(!(t>0)){toast('Tutar yaz');return;}
+  var once=JSON.stringify(c);
+  if(c.ekstreBekleniyor){if(c.tahminiEkstre!=null&&c.tahminiEkstre!=='')c.tahminiEkstre=Math.max(0,sayi(c.tahminiEkstre)-t);}
+  else{c.kalanEkstre=Math.max(0,(+c.kalanEkstre||0)-t);if(c.kalanAsgari!=null&&c.kalanAsgari!=='')c.kalanAsgari=Math.max(0,(+c.kalanAsgari||0)-t);}
+  c.toplamBorc=Math.max(0,(+c.toplamBorc||0)-t);c.kullanilabilir=Math.min(+c.limit||Infinity,(+c.kullanilabilir||0)+t);
+  V.odemeler.push({t:tarihYaz(bugun()),k:id,m:t});kaydet();kapat();yenile();
+  geriAlToast(tl(t)+' ödeme kaydedildi ✅',function(){var i=V.kartlar.indexOf(c);V.kartlar[i]=JSON.parse(once);V.odemeler.pop();kaydet();yenile();});}
+function geriAlToast(m,fn){var t=$('toast');t.innerHTML=esc(m)+' <button style="background:#fff;color:#111;min-height:32px;padding:4px 10px;margin-left:6px" id="gaB">↩️ Geri al</button>';t.style.display='block';$('gaB').onclick=function(){fn();t.style.display='none';};clearTimeout(toastZ);toastZ=setTimeout(function(){t.style.display='none';},5000);}
+function ekstreAc(id){var c=kartBul(id),b=bugun(),sk=sonrakiGun(c.odemeGunu,b);
+  ac('<h2 style="margin-top:0">🧾 '+esc(c.banka)+' — yeni ekstre</h2><p class="soluk">Banka uygulamasındaki yeni ekstreyi gir.</p>'+
+  '<label>Ekstre borcu</label><input id="eB" inputmode="decimal" oninput="$(\'eA\').value=Math.round(sayi(this.value)*'+oran(c)+').toLocaleString(\'tr-TR\')">'+
+  '<label>Asgari ödeme</label><input id="eA" inputmode="decimal"><label>Son ödeme tarihi</label><input id="eT" type="date" value="'+tarihYaz(sk)+'">'+
+  '<label>Toplam borç (gelecek taksitler dahil)</label><input id="eTop" inputmode="decimal" value="'+(+c.toplamBorc).toLocaleString('tr-TR',{maximumFractionDigits:2})+'">'+
+  '<label>Kullanılabilir limit</label><input id="eK" inputmode="decimal" value="'+(+c.kullanilabilir).toLocaleString('tr-TR',{maximumFractionDigits:2})+'">'+
+  '<div style="height:12px"></div><button class="btn" onclick="ekstreKaydet(\''+id+'\')">💾 Kaydet</button><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="kapat()">Vazgeç</button>');}
+function ekstreKaydet(id){var c=kartBul(id),e=sayi($('eB').value);if(!(e>=0)||!$('eT').value){toast('Ekstre ve tarih gerekli');return;}
+  c.kalanEkstre=e;c.kalanAsgari=sayi($('eA').value);c.sonOdeme=$('eT').value;c.toplamBorc=sayi($('eTop').value);c.kullanilabilir=sayi($('eK').value);
+  c.ekstreBekleniyor=false;c.tahminiEkstre=null;var d=tarihOku(c.sonOdeme);c.odemeGunu=d.getDate();kaydet();kapat();yenile();toast('Ekstre güncellendi ✅');}
+function kartDuzenle(id){var c=id?kartBul(id):{id:'',banka:'',ad:'',renk:RENKLER[V.kartlar.length%RENKLER.length],limit:0,kullanilabilir:0,toplamBorc:0,kalanEkstre:0,kalanAsgari:0,sonOdeme:'',kesimGunu:1,odemeGunu:11};
+  var f=function(k,l,t){return '<label>'+l+'</label><input id="f_'+k+'" '+(t||'inputmode="decimal"')+' value="'+esc(c[k]==null?'':(typeof c[k]==='number'?c[k].toLocaleString('tr-TR',{maximumFractionDigits:2}):c[k]))+'">';};
+  ac('<h2 style="margin-top:0">'+(id?'✏️ Kartı düzenle':'➕ Yeni kart')+'</h2>'+f('banka','Banka','type="text"')+f('ad','Kart adı','type="text"')+
+  '<label>Renk</label><div class="renkler" id="f_renkler">'+RENKLER.map(function(r){return '<button aria-label="Renk '+r+'" class="'+(r===c.renk?'sec':'')+'" style="background:'+r+'" onclick="renkSec(this,\''+r+'\')"></button>';}).join('')+'</div><input type="hidden" id="f_renk" value="'+esc(c.renk)+'">'+
+  f('limit','Kart limiti')+f('kullanilabilir','Kullanılabilir limit')+f('toplamBorc','Toplam borç')+f('kalanEkstre','Kalan ekstre borcu')+f('kalanAsgari','Kalan asgari (bilmiyorsan boş bırak)')+
+  '<label>Son ödeme tarihi</label><input id="f_sonOdeme" type="date" value="'+esc(c.sonOdeme)+'">'+f('kesimGunu','Ekstre kesim günü (ayın kaçı)','inputmode="numeric"')+
+  '<div style="height:12px"></div><button class="btn" onclick="kartKaydet(\''+(id||'')+'\')">💾 Kaydet</button>'+(id?'<div style="height:8px"></div><button class="btnk" style="width:100%" onclick="kartSil(\''+id+'\')">🗑️ Kartı sil</button>':'')+'<div style="height:8px"></div><button class="btn2" style="width:100%" onclick="kapat()">Vazgeç</button>');}
+function renkSec(b,r){document.querySelectorAll('#f_renkler button').forEach(function(x){x.classList.remove('sec');});b.classList.add('sec');$('f_renk').value=r;}
+function kartKaydet(id){var g=function(k){return $('f_'+k).value;};if(!g('banka').trim()){toast('Banka adı yaz');return;}if(!g('sonOdeme')){toast('Son ödeme tarihini seç');return;}
+  var c=id?kartBul(id):{id:yeniId()};c.banka=g('banka').trim();c.ad=g('ad').trim();c.renk=g('renk');
+  ['limit','kullanilabilir','toplamBorc','kalanEkstre'].forEach(function(k){c[k]=sayi(g(k));});
+  c.kalanAsgari=g('kalanAsgari').trim()===''?null:sayi(g('kalanAsgari'));c.sonOdeme=g('sonOdeme');c.odemeGunu=tarihOku(c.sonOdeme).getDate();c.kesimGunu=Math.min(31,Math.max(1,parseInt(g('kesimGunu'))||1));
+  if(!id)V.kartlar.push(c);kaydet();kapat();yenile();toast('Kaydedildi ✅');}
+function kartSil(id){var c=kartBul(id);if(!confirm(c.banka+' kartı silinsin mi?'))return;var i=V.kartlar.indexOf(c);V.kartlar.splice(i,1);kaydet();kapat();yenile();
+  geriAlToast('Kart silindi',function(){V.kartlar.splice(i,0,c);kaydet();yenile();});}
+
+/* ---------- içe/dışa aktar ---------- */
+function iceAktarAc(){ac('<h2 style="margin-top:0">📥 Kart bilgilerini yükle</h2><p class="soluk">Sana verilen metni buraya yapıştır ya da yedek dosyasını seç. Mevcut kartların yerine geçer.</p><textarea id="iA" rows="7" placeholder="{ &quot;kartlar&quot;: [ … ] }"></textarea>'+
+  '<div style="height:10px"></div><button class="btn" onclick="iceAktar($(\'iA\').value)">✅ Yükle</button><div style="height:8px"></div><label class="btn2" style="display:block;text-align:center;padding:12px;border-radius:14px;color:var(--yazi);font-size:1em;font-weight:600">📂 Dosyadan seç<input type="file" accept=".json,.txt,application/json,text/plain" style="display:none" onchange="dosyaOku(this)"></label><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="kapat()">Vazgeç</button>');}
+function dosyaOku(inp){var f=inp.files[0];if(!f)return;var r=new FileReader();r.onload=function(){iceAktar(r.result);};r.readAsText(f);}
+function iceAktar(m){try{var s=String(m||'');var a=s.indexOf('{'),b=s.lastIndexOf('}');var d=JSON.parse(s.slice(a,b+1));if(!d.kartlar||!d.kartlar.length)throw 0;
+  d.kartlar.forEach(function(c){if(!c.id)c.id=yeniId();if(!c.odemeGunu&&c.sonOdeme)c.odemeGunu=tarihOku(c.sonOdeme).getDate();});
+  V.kartlar=d.kartlar;if(d.gelir)V.gelir=Object.assign({},BOS.gelir,d.gelir);if(d.gider)V.gider=Object.assign({},BOS.gider,d.gider);if(d.ayar)V.ayar=Object.assign({},BOS.ayar,d.ayar);if(d.odemeler)V.odemeler=d.odemeler;
+  kaydet();kapat();git('ana');toast(d.kartlar.length+' kart yüklendi ✅');}catch(e){toast('Metin okunamadı — tamamını kopyaladığından emin ol');}}
+function blobIndir(icerik,ad,tur){var u=URL.createObjectURL(new Blob([icerik],{type:tur}));var a=document.createElement('a');a.href=u;a.download=ad;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove();},4000);}
+function yedekIndir(){blobIndir(JSON.stringify(V,null,1),'kart-pusulasi-yedek-'+tarihYaz(bugun())+'.json','application/json');toast('Yedek indirildi 📤');}
+function hepsiniSil(){if(!confirm('Bütün kartlar ve ayarlar silinsin mi? Önce yedek almanı öneririm.'))return;var eski=JSON.stringify(V);V=JSON.parse(JSON.stringify(BOS));kaydet();yenile();
+  geriAlToast('Veriler silindi',function(){V=JSON.parse(eski);kaydet();yenile();});}
+function takvimIndir(){if(!V.kartlar.length){toast('Önce kart ekle');return;}
+  var s=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//KartPusulasi//TR','CALSCALE:GREGORIAN'],dt=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+  V.kartlar.forEach(function(c){var ilk=sonrakiGun(c.odemeGunu,new Date(bugun().getTime()-864e5)),d=tarihYaz(ilk).replace(/-/g,'');
+    s.push('BEGIN:VEVENT','UID:kp-'+c.id+'@kartpusulasi','DTSTAMP:'+dt,'DTSTART;TZID=Europe/Istanbul:'+d+'T090000','DURATION:PT30M','RRULE:FREQ=MONTHLY;BYMONTHDAY='+Math.min(28,c.odemeGunu)+(c.odemeGunu>28?',-1':''),
+      'SUMMARY:💳 '+c.banka+' son ödeme günü','DESCRIPTION:Kart Pusulası\'ndan güncel tutarı kontrol et.',
+      'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+c.banka+' ödemesi 2 gün sonra','TRIGGER:-P2D','END:VALARM',
+      'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:'+c.banka+' ödemesi bugün','TRIGGER:PT0M','END:VALARM','END:VEVENT');});
+  s.push('END:VCALENDAR');blobIndir(s.join('\r\n'),'kart-odemeleri.ics','text/calendar');toast('Takvim dosyası açılıyor 📅');}
+
+/* ---------- kasa ---------- */
+function kasaPost(yol,govde){return fetch(kasa()+yol,{method:'POST',headers:{'Content-Type':'text/plain'},body:JSON.stringify(govde)}).then(function(r){return r.json().catch(function(){return{};}).then(function(j){if(!r.ok)throw new Error(j&&(j.hata||j.error)||('k'+r.status));return j;});})
+  .catch(function(e){var m=String(e&&e.message||'');if(/sifre|şifre|yetki|401|403/i.test(m))throw new Error('Kasa şifresi yanlış görünüyor');if(!navigator.onLine)throw new Error('İnternet yok, biraz sonra dene');throw new Error('Kasaya şu an ulaşılamadı, biraz sonra tekrar dene');});}
+function standalone(){return (window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;}
+function b64u8(s){var p='='.repeat((4-s.length%4)%4),b=(s+p).replace(/-/g,'+').replace(/_/g,'/'),r=atob(b),o=new Uint8Array(r.length);for(var i=0;i<r.length;i++)o[i]=r.charCodeAt(i);return o;}
+function swKayit(){if(!('serviceWorker' in navigator)||location.protocol!=='https:')return Promise.resolve(null);return navigator.serviceWorker.register('sw.js').catch(function(){return null;});}
+function bildirimAc(){
+  if(!('Notification' in window)||!('serviceWorker' in navigator)){toast(standalone()?'Bu cihaz bildirim desteklemiyor':'Önce Ana Ekrana Ekle, sonra simgeden aç');if(!standalone())anaEkranYardim();return;}
+  if(location.protocol!=='https:'){toast('Bildirim yalnız https adreste çalışır');return;}
+  Notification.requestPermission().then(function(p){if(p!=='granted'){toast('İzin verilmedi — Ayarlar\'dan izin verebilirsin');rozet();return;}ls('kp_bild','1');return aboneOl(true);});}
+function aboneOl(zorla){
+  if(!('serviceWorker' in navigator)||location.protocol!=='https:'||!('Notification' in window)||Notification.permission!=='granted'||ls('kp_bild')==='0')return Promise.resolve();
+  var son=+(ls('kp_abone_t')||0);if(!zorla&&Date.now()-son<7*864e5)return Promise.resolve();
+  return swKayit().then(function(){return navigator.serviceWorker.ready;}).then(function(reg){return reg.pushManager.getSubscription().then(function(s){return s||reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64u8(VAPID)});});})
+   .then(function(s){var j=s.toJSON();ls('kp_endpoint',j.endpoint);return kasaPost('/abone',{s:{endpoint:j.endpoint,keys:{p256dh:j.keys.p256dh,auth:j.keys.auth}},rol:'kullanici',ogrId:'',sinif:'',sube:'',ad:'kullanici',uyg:UYG});})
+   .then(function(){ls('kp_abone_t',String(Date.now()));if(zorla)toast('Bu cihaz kaydedildi 🔔');rozet();bildirimDurumGoster();})
+   .catch(function(e){if(zorla)toast(e.message||'Kayıt yapılamadı');});}
+function bildirimKapat(){ls('kp_bild','0');if(!('serviceWorker' in navigator)){rozet();return;}navigator.serviceWorker.getRegistration().then(function(r){return r&&r.pushManager.getSubscription();}).then(function(s){return s&&s.unsubscribe();}).catch(function(){}).then(function(){ls('kp_abone_t','0');toast('Bildirimler kapatıldı 🔕');rozet();bildirimDurumGoster();});}
+function bildirimAcikMi(){return 'Notification' in window&&Notification.permission==='granted'&&ls('kp_bild')!=='0'&&!!ls('kp_endpoint');}
+function rozet(){var a=bildirimAcikMi();$('bildRozet').textContent=a?'🔔':'🔕';var h=$('hakBild');if(h)h.textContent=a?'🔔 Bildirim açık':'🔕 Bildirim kapalı · aç';}
+function bildirimDurumGoster(){var el=$('bildDurum');if(!el)return;var izin='Notification' in window?Notification.permission:'yok',ep=ls('kp_endpoint');
+  var sat=function(ok,y){return '<div>'+(ok?'✅':'⛔')+' '+y+'</div>';};
+  var h=sat(izin==='granted','Bildirim izni')+sat(standalone(),'Ana ekrandan açıldı')+sat(!!ep&&ls('kp_bild')!=='0','Abonelik');
+  el.innerHTML=h+'<div id="kasaKayit">⏳ Kasa kontrol ediliyor…</div>';
+  if(!ep){$('kasaKayit').innerHTML='⛔ Kasada kayıt yok';return;}
+  kasaPost('/abone/durum',{endpoint:ep,uyg:UYG}).then(function(j){var ben=(j.ben||[]).length;$('kasaKayit').innerHTML=(ben?'✅':'⛔')+' Kasada kayıt'+(j.toplam!=null?' · bu uygulamada toplam '+j.toplam+' cihaz':'');})
+   .catch(function(e){$('kasaKayit').innerHTML='⛔ '+esc(e.message);});}
+function banaDene(){var ep=ls('kp_endpoint');if(!ep){toast('Önce “Bu cihazı kaydet”');return;}
+  var g=JSON.stringify({hedef:{uyg:UYG,rol:['kullanici']},veri:{baslik:'💳 Kart Pusulası · Deneme',govde:'Bildirimler çalışıyor ✅',url:'./#ana',etiket:'deneme'}});
+  try{if(navigator.sendBeacon&&navigator.sendBeacon(kasa()+'/olay',new Blob([g],{type:'text/plain'}))){toast('Deneme gönderildi, birkaç saniye bekle 🧪');return;}}catch(e){}
+  fetch(kasa()+'/olay',{method:'POST',keepalive:true,headers:{'Content-Type':'text/plain'},body:g}).then(function(){toast('Deneme gönderildi 🧪');}).catch(function(){toast('Kasaya ulaşılamadı');});}
+function bildirimleriTemizle(){try{if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.getRegistration().then(function(r){if(r&&r.getNotifications)return r.getNotifications().then(function(l){l.forEach(function(n){n.close();});});}).catch(function(){});if(navigator.clearAppBadge)navigator.clearAppBadge().catch(function(){});}catch(e){}}
+
+/* --- hatırlatmalar --- */
+var HL=[];
+var ONERILER=[
+  {saat:'09:30',gunler:[],baslik:'Kart kontrolü',govde:'Bugün ödemen var mı? Bir bak, içini ferahlat.'},
+  {saat:'20:00',gunler:[1],baslik:'Haftalık bütçe',govde:'Bu haftanın ödemelerine 1 dakika göz at.'},
+  {saat:'18:00',gunler:[5],baslik:'Hafta sonu öncesi',govde:'Önümüzdeki hafta hangi kartın ödemesi var?'},
+  {saat:'21:30',gunler:[],baslik:'Harcama notu',govde:'Bugün kartla ne harcadın? Kart Pusulası\'na işle.'}];
+function sifre(){var s=$('hSifre')?$('hSifre').value:ls('kp_sifre');if($('hHatirla')){if($('hHatirla').checked&&s)ls('kp_sifre',s);else if(!$('hHatirla').checked)try{localStorage.removeItem('kp_sifre');}catch(e){}}return s;}
+function hatirlatmaYukle(){var s=sifre();if(!s){toast('Kasa şifresini yaz');return;}
+  kasaPost('/hatirlatma/liste',{sifre:s,uyg:UYG}).then(function(j){HL=(j.liste||j||[]).filter?(j.liste||j):[];hatirlatmaCiz();toast(HL.length+' hatırlatma geldi');}).catch(function(e){toast(e.message);});}
+function hatirlatmaCiz(){var el=$('hListe');if(!el)return;if(!HL.length){el.innerHTML='<p class="soluk">Liste boş.</p>';return;}
+  el.innerHTML=HL.map(function(h,i){var oto=String(h.id).indexOf('oto_')===0;return '<div class="hat"><div class="satir ara"><b>'+esc(h.saat)+' · '+esc(h.baslik)+'</b><input type="checkbox" style="width:26px;height:26px" aria-label="Aktif" '+(h.aktif!==false?'checked':'')+' onchange="HL['+i+'].aktif=this.checked"></div>'+
+   '<div class="soluk">'+(h.tarih?trTarih(tarihOku(h.tarih),true)+' (kart ödemesi, kendiliğinden)':(h.gunler&&h.gunler.length?h.gunler.map(function(g){return GUNLER[g];}).join(', '):'Her gün'))+'</div>'+
+   (oto?'':'<label>Saat</label><input type="time" value="'+esc(h.saat)+'" onchange="HL['+i+'].saat=this.value"><label>Başlık</label><input value="'+esc(h.baslik)+'" onchange="HL['+i+'].baslik=this.value"><label>Metin</label><input value="'+esc(h.govde)+'" onchange="HL['+i+'].govde=this.value">'+
+   '<label>Günler (boş = her gün)</label><div class="secim">'+[1,2,3,4,5,6,0].map(function(g){return '<button class="'+((h.gunler||[]).indexOf(g)>=0?'sec':'')+'" onclick="gunSec('+i+','+g+')">'+GUNLER[g].slice(0,3)+'</button>';}).join('')+'</div>')+
+   '<div style="height:6px"></div><button class="btnk" style="width:100%" onclick="if(confirm(\'Silinsin mi?\')){HL.splice('+i+',1);hatirlatmaCiz();}">🗑️ Sil</button></div>';}).join('');}
+function gunSec(i,g){var a=HL[i].gunler=HL[i].gunler||[],k=a.indexOf(g);if(k>=0)a.splice(k,1);else a.push(g);hatirlatmaCiz();}
+function hatirlatmaEkle(){HL.push({id:'h'+Date.now().toString(36),saat:'09:00',gunler:[],baslik:'Hatırlatma',govde:'',url:'./#ana',hedef:{},aktif:true});hatirlatmaCiz();}
+function oneriEkle(i){var o=ONERILER[i];HL.push({id:'h'+Date.now().toString(36)+i,saat:o.saat,gunler:o.gunler.slice(),baslik:'💳 Kart Pusulası · '+o.baslik,govde:o.govde,url:'./#ana',hedef:{},aktif:true});hatirlatmaCiz();toast('Eklendi — 💾 Kasaya kaydet\'e dokun');}
+function otoListe(){var L=[],b=bugun();olaylar().forEach(function(o){if(o.tip==='gecikti')return;
+  [[2,'10:00','2 gün sonra'],[0,'09:00','BUGÜN']].forEach(function(x){var d=new Date(o.tarih.getTime()-x[0]*864e5),f=gunFark(d);if(f<0||f>7)return;
+    L.push({id:'oto_'+o.c.id+'_'+tarihYaz(d)+'_'+x[0],saat:x[1],gunler:[d.getDay()],tarih:tarihYaz(d),baslik:'💳 Kart Pusulası · '+o.c.banka,govde:'Son ödeme '+x[2]+' ('+trTarih(o.tarih)+'). Asgariyi kaçırma.',url:'./#ana',hedef:{},aktif:true});});});return L;}
+function otoHatirlatma(elle){var s=elle?sifre():ls('kp_sifre');if(!s){if(elle)toast('Kasa şifresini yaz');return Promise.resolve();}
+  return kasaPost('/hatirlatma/liste',{sifre:s,uyg:UYG}).then(function(j){var eski=(j.liste||j||[]);if(!eski.filter)eski=[];var el=eski.filter(function(h){return String(h.id).indexOf('oto_')!==0;});
+    var yeni=el.concat(otoListe());return kasaPost('/hatirlatma/kaydet',{sifre:s,uyg:UYG,liste:yeni}).then(function(){HL=yeni;ls('kp_oto_t',String(Date.now()));if(elle){hatirlatmaCiz();toast('Ödeme hatırlatmaları kasaya yazıldı ✅');}});})
+   .catch(function(e){if(elle)toast(e.message);});}
+var otoZ;function otoHatirlatmaPlanla(){clearTimeout(otoZ);if(!ls('kp_sifre'))return;otoZ=setTimeout(function(){otoHatirlatma(false);},4000);}
+function hatirlatmaKaydet(){var s=sifre();if(!s){toast('Kasa şifresini yaz');return;}
+  kasaPost('/hatirlatma/kaydet',{sifre:s,uyg:UYG,liste:HL}).then(function(){toast('Kasaya kaydedildi 💾');}).catch(function(e){toast(e.message);});}
+
+/* ---------- genel ---------- */
+function yazi(d){var f=Math.min(22,Math.max(13,(+(ls('kp_fs')||16))+d));ls('kp_fs',String(f));document.documentElement.style.setProperty('--fs',f+'px');}
+function tema(){document.body.classList.toggle('koyu',ls('kp_koyu')==='1');}
+function paylas(){var u=location.href.split('#')[0];if(navigator.share)navigator.share({title:'Kart Pusulası',url:u}).catch(function(){});else{try{navigator.clipboard.writeText(u);toast('Link kopyalandı');}catch(e){toast(u);}}}
+function anaEkranYardim(){ac('<h2 style="margin-top:0">➕ Ana ekrana ekle</h2><ol><li>Bu sayfayı <b>Safari</b>\'de aç.</li><li>Alttaki <b>Paylaş (□↑)</b> düğmesine dokun.</li><li><b>Ana Ekrana Ekle</b>\'yi seç.</li><li>Ana ekrandaki <b>Kart Pusulası</b> simgesinden aç.</li></ol><button class="btn" onclick="kapat()">Tamam</button>');}
+function kasaDegis(){var u=prompt('Kasa adresi',kasa());if(u==null)return;if(u.trim())ls('zkasa_url',u.trim());else try{localStorage.removeItem('zkasa_url');}catch(e){}cizAyarlar();toast('Kaydedildi 💾');}
+function yeniliklerGoster(){ac('<h2 style="margin-top:0">🆕 Yeni neler var? (Sürüm '+SURUM+')</h2><ul>'+YENILIKLER.map(function(y){return '<li>'+esc(y)+'</li>';}).join('')+'</ul><button class="btn" onclick="kapat()">Tamam</button>');ls('kp_gorulen_surum',String(SURUM));}
+function surumKontrol(){if(location.protocol.indexOf('http')!==0)return;fetch(location.href.split('#')[0].split('?')[0]+'?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.text();}).then(function(t){var m=t.match(/var SURUM=(\d+)/);if(m&&+m[1]>SURUM){var a=document.activeElement;if(a&&/INPUT|TEXTAREA/.test(a.tagName)||$('perde').classList.contains('acik'))$('yeniSurum').style.display='block';else location.reload();}}).catch(function(){});}
+function cevrim(){$('cevrim').style.display=navigator.onLine?'none':'block';}
+function oneGeldi(){bildirimleriTemizle();surumKontrol();yenile();aboneOl(false);
+  if(ls('kp_sifre')&&Date.now()-(+(ls('kp_oto_t')||0))>12*3600e3)otoHatirlatma(false);}
+window.addEventListener('online',cevrim);window.addEventListener('offline',cevrim);
+document.addEventListener('visibilitychange',function(){if(!document.hidden)oneGeldi();});
+window.addEventListener('focus',bildirimleriTemizle);window.addEventListener('pageshow',bildirimleriTemizle);
+function hataKarti(){if(document.getElementById('hataK'))return;var d=document.createElement('div');d.id='hataK';d.style.cssText='position:fixed;inset:0;z-index:98;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px';
+  d.innerHTML='<div class="k" style="max-width:360px;text-align:center"><h2>😕 Bir sorun oldu</h2><p class="soluk">Verilerin güvende, telefonunda duruyor.</p><button class="btn" onclick="location.reload()">🔄 Yenile</button><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="onbellekTemizle()">🧹 Önbelleği temizleyip yenile</button></div>';document.body.appendChild(d);}
+function onbellekTemizle(){var p=[];try{if(window.caches)p.push(caches.keys().then(function(k){return Promise.all(k.map(function(x){return caches.delete(x);}));}));}catch(e){}Promise.all(p).then(function(){location.reload();});}
+window.onerror=function(m,src){if(src&&src.indexOf(location.href.split('#')[0].split('?')[0])!==0&&src!=='')return;hataKarti();};
+window.addEventListener('unhandledrejection',function(e){/* ağ hataları sessiz geçilir */});
+
+/* ---------- başlat ---------- */
+(function(){
+  yukle();tema();var f=+(ls('kp_fs')||16);document.documentElement.style.setProperty('--fs',f+'px');cevrim();
+  git((location.hash||'#ana').slice(1));
+  setTimeout(function(){var a=$('acilis');a.style.opacity='0';setTimeout(function(){a.remove();},300);},600);
+  if(location.protocol==='https:')swKayit();
+  bildirimleriTemizle();rozet();aboneOl(false);setTimeout(surumKontrol,3000);
+  if(ls('kp_sifre')&&Date.now()-(+(ls('kp_oto_t')||0))>12*3600e3)setTimeout(function(){otoHatirlatma(false);},2500);
+  var g=+(ls('kp_gorulen_surum')||0);if(g&&g<SURUM)setTimeout(yeniliklerGoster,900);else if(!g)ls('kp_gorulen_surum',String(SURUM));
+})();
+</script>
+</body>
+</html>
