@@ -106,11 +106,12 @@ body.koyu .uyari{background:#2a1414;color:#fecaca}
 </nav>
 <div id="perde" onclick="if(event.target===this)kapat()"><div id="sayfaAlt" role="dialog" aria-modal="true"></div></div>
 <div id="toast" role="status"></div>
+<input type="file" id="gorselSec" accept="image/*" multiple hidden onchange="gorselIsle(this)">
 
 <script>
 /* ===== Kart Pusulası — Barış Öğretmen ===== */
-var SURUM=2;
-var YENILIKLER=['7 kartın adı, rengi ve ödeme günleri hazır geliyor','🔒 Rakamların şifreyle tek dokunuşta açılıyor (kodda açık hâlde durmuyor)','🤖 Akıllı danışman: durumunu yorumlar, bankaya ne diyeceğini söyler','🔐 Anahtar kasası: yapay zekâ anahtarlarını ekle, test et, yönet'];
+var SURUM=3;
+var YENILIKLER=['📸 Banka ekran görüntüsünü ver, rakamları kendisi okusun ve kartı güncellesin','🧾 Ödeme dekontunu ver, ödemeyi kendisi işlesin','🎯 Senaryolar: “asgari + biraz fazla” ile borç hangi ay biter, ay ay hesap','📋 Bu ayın ödeme listesi: hangi karta ne kadar yatıracağın hazır'];
 var SIFRELI={"s":"o3ZSxfUUX/cH/UZ1jKaAlw==","iv":"1QiUwzcJM+A3kHpY","c":"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"};
 var VARSAYILAN=[
 {banka:'İş Bankası',ad:'Maximum Platinum',renk:'#0b4ea2',sonOdeme:'2026-11-04',kesimGunu:25,odemeGunu:4},
@@ -222,6 +223,7 @@ function cizAna(){
   if(ilk){h+='<div class="k" style="border-top:6px solid '+esc(ilk.c.renk)+'"><div class="soluk">📅 Sıradaki ödeme</div><div class="satir ara"><div><div class="buyuk">'+esc(ilk.c.banka)+'</div><div>'+trTarih(ilk.tarih,true)+' · <b>'+kalanYazi(ilk.d)+'</b></div></div></div>'+
     '<table class="tablo" style="margin-top:8px"><tr><td>Asgari'+(ilk.tahmini?' (tahmini)':'')+'</td><td>'+tl(ilk.tutar)+'</td></tr><tr><td>Tamamı</td><td>'+tl(ilk.tam)+'</td></tr></table>'+
     '<div style="height:10px"></div><button class="btn" onclick="odeAc(\''+ilk.c.id+'\')">✓ Ödedim</button></div>';}
+  h+='<button class="btn2" style="width:100%;margin-bottom:12px" onclick="gorselAc()">📸 Ödeme yaptım / ekstre geldi — ekran görüntüsünü ver</button>';
   h+='<div class="k"><h2>🗓️ Önümüzdeki 30 gün</h2>'+(ay.length?ay.map(function(o){return olaySatiri(o,false);}).join(''):'<p class="soluk">30 gün içinde ödeme yok.</p>')+'</div>';
   var acik=ayToplam-el2;
   h+='<div class="k '+(acik>0?'uyari':'iyi')+'"><h2>🧮 Bu ayın özeti</h2><table class="tablo">'+
@@ -233,7 +235,7 @@ function cizAna(){
   el.innerHTML=h;
 }
 function cizKartlar(){
-  var el=$('s-kartlar'),h=(V.kilitli?kilitKarti():'')+'<div class="satir ara" style="margin-bottom:10px"><b style="font-size:1.1em">💳 Kartlarım ('+V.kartlar.length+')</b><button class="btn2" onclick="kartDuzenle()" aria-label="Kart ekle">➕ Ekle</button></div>';
+  var el=$('s-kartlar'),h=(V.kilitli?kilitKarti():'')+'<div class="satir ara" style="margin-bottom:10px"><b style="font-size:1.1em">💳 Kartlarım ('+V.kartlar.length+')</b><button class="btn2" onclick="kartDuzenle()" aria-label="Kart ekle">➕ Ekle</button></div><button class="btn" style="margin-bottom:12px" onclick="gorselAc()">📸 Ekran görüntüsünden güncelle</button>';
   var sirali=V.kartlar.slice().sort(function(a,b){var r={gecikti:0,acil:1,yakin:2,bekliyor:3,normal:4,faiz:5,tamam:6};var x=durum(a),y=durum(b);return (r[x.tip]-r[y.tip])||(tarihOku(a.sonOdeme)-tarihOku(b.sonOdeme));});
   sirali.forEach(function(c){
     var s=durum(c),dolu=c.limit?Math.min(100,Math.round(((c.limit-(c.kullanilabilir||0))/c.limit)*100)):0;
@@ -243,7 +245,7 @@ function cizKartlar(){
     '<div>'+(c.ekstreBekleniyor?'Tahmini ekstre':'Kalan ekstre')+'<br><b>'+tl(c.ekstreBekleniyor?(c.tahminiEkstre!=null&&c.tahminiEkstre!==''?sayi(c.tahminiEkstre):c.toplamBorc):c.kalanEkstre)+'</b></div>'+
     '<div>Kalan asgari<br><b>'+(c.ekstreBekleniyor?tl(tahminiAsgari(c))+' ~':(c.kalanAsgari==null||c.kalanAsgari===''?'❔ bilinmiyor':tl(c.kalanAsgari)))+'</b></div>'+
     '<div>Son ödeme<br><b>'+(c.sonOdeme?trTarih(tarihOku(c.sonOdeme)):'—')+'</b></div><div>Kesim / ödeme günü<br><b>'+c.kesimGunu+' / '+c.odemeGunu+'</b></div></div>'+
-    '<div class="dugmeler"><button onclick="odeAc(\''+c.id+'\')">✓ Ödedim</button><button onclick="ekstreAc(\''+c.id+'\')">🧾 Yeni ekstre</button><button onclick="kartDuzenle(\''+c.id+'\')">✏️ Düzenle</button></div></div>';
+    '<div class="dugmeler"><button onclick="odeAc(\''+c.id+'\')">✓ Ödedim</button><button onclick="ekstreAc(\''+c.id+'\')">🧾 Yeni ekstre</button><button onclick="kartDuzenle(\''+c.id+'\')">✏️ Düzenle</button><button onclick="gorselAc(\''+c.id+'\')" aria-label="Ekran görüntüsünden güncelle">📸</button></div></div>';
   });
   if(!V.kartlar.length)h+='<div class="k"><p>Henüz kart yok.</p><button class="btn" onclick="iceAktarAc()">📥 Kart bilgilerimi yapıştır</button></div>';
   el.innerHTML=h;
@@ -292,7 +294,7 @@ function cizAvans(){
 function elde(){var g=V.gelir,x=V.gider;var gel=(+g.maas||0)+(+g.ek||0);if(!gel)return 0;return gel-(+x.kira||0)-(+x.diger||0);}
 function cizPlan(){
   var el=$('s-plan'),g=V.gelir,x=V.gider;
-  var h=(V.kilitli?kilitKarti():'')+danismanKarti()+'<div class="k"><h2>💰 Aylık gelir ve gider</h2><div class="izgara">'+
+  var h=(V.kilitli?kilitKarti():'')+senaryoKarti()+danismanKarti()+'<div class="k"><h2>💰 Aylık gelir ve gider</h2><div class="izgara">'+
    [['gelir','maas','Maaş / ana gelir'],['gelir','ek','Ek gelir'],['gider','kira','Kira'],['gider','diger','Fatura, mutfak, yol']].map(function(a){return '<div><label>'+a[2]+'</label><input inputmode="decimal" value="'+((V[a[0]][a[1]]||0)?(+V[a[0]][a[1]]).toLocaleString('tr-TR'):'')+'" placeholder="0" onchange="V.'+a[0]+'.'+a[1]+'=sayi(this.value);kaydet();cizPlan()"></div>';}).join('')+'</div></div>';
   var kalan=elde(),L=olaylar().filter(function(o){return o.tip==='gecikti'||o.d<=30;});
   var on=L.slice().sort(function(a,b){var p=function(o){return o.tip==='gecikti'?0:(o.tutar<5000?1:2);};return (p(a)-p(b))||(a.tarih-b.tarih);});
@@ -477,6 +479,104 @@ function otoHatirlatma(elle){var s=elle?sifre():ls('kp_sifre');if(!s){if(elle)to
 var otoZ;function otoHatirlatmaPlanla(){clearTimeout(otoZ);if(!ls('kp_sifre'))return;otoZ=setTimeout(function(){otoHatirlatma(false);},4000);}
 function hatirlatmaKaydet(){var s=sifre();if(!s){toast('Kasa şifresini yaz');return;}
   kasaPost('/hatirlatma/kaydet',{sifre:s,uyg:UYG,liste:HL}).then(function(){toast('Kasaya kaydedildi 💾');}).catch(function(e){toast(e.message);});}
+
+/* ---------- 📸 ekran görüntüsünden güncelle ---------- */
+var GH={hedef:null,oneriler:[]};
+function gorselAc(id){if(V.kilitli){toast('Önce rakamlarını aç 🔒');return;}GH.hedef=id||null;var i=$('gorselSec');i.value='';i.click();}
+function kucult(f){return new Promise(function(ok,no){var u=URL.createObjectURL(f),im=new Image();im.onload=function(){var s=Math.min(1,1600/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);ok(c.toDataURL('image/jpeg',0.8).split(',')[1]);};im.onerror=function(){no(new Error('Resim açılamadı'));};im.src=u;});}
+function gemini(parts,json){var g={contents:[{role:'user',parts:parts}],generationConfig:{temperature:0.1,maxOutputTokens:1200}};if(json)g.generationConfig.responseMimeType='application/json';
+  return fetch('https://generativelanguage.googleapis.com/v1beta/models/'+GMODEL+':generateContent?key='+encodeURIComponent(anahtarCoz()),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(g)})
+  .then(function(r){if(!r.ok)throw new Error('ai');return r.json();}).then(function(j){var p=(((j.candidates||[])[0]||{}).content||{}).parts;var t=p?p.map(function(x){return x.text||'';}).join(''):'';if(!t)throw new Error('ai');ls('kp_ai_ok','1');return t;});}
+function trKucuk(s){return String(s||'').toLocaleLowerCase('tr').replace(/ı/g,'i').replace(/ş/g,'s').replace(/ğ/g,'g').replace(/ü/g,'u').replace(/ö/g,'o').replace(/ç/g,'c').replace(/[^a-z0-9]/g,'');}
+var TAKMA={trendyol:'qnb',bonus:'garanti',maximum:'isbankasi',axess:'akbank',world:'yapikredi',infinite:'teb',enpara:'enpara',isbank:'isbankasi',iscep:'isbankasi'};
+function kartEslestir(d){if(GH.hedef)return kartBul(GH.hedef);var a=trKucuk(d.banka)+' '+trKucuk(d.kartAdi);
+  Object.keys(TAKMA).forEach(function(k){if(a.indexOf(k)>=0)a+=' '+TAKMA[k];});
+  var en=null;V.kartlar.forEach(function(c){var b=trKucuk(c.banka).replace('bbva','');if(b&&a.indexOf(b)>=0&&!en)en=c;});return en;}
+function gorselIsle(inp){var fl=[].slice.call(inp.files||[]);if(!fl.length)return;GH.oneriler=[];var i=0;
+  ac('<h2 style="margin-top:0">📸 Okunuyor…</h2><p id="ghDurum" class="soluk">⏳ Hazırlanıyor…</p>');
+  var bankalar=V.kartlar.map(function(c){return c.banka+' ('+c.ad+')';}).join(', ');
+  var istem='Bu bir Türk bankası mobil uygulamasının ekran görüntüsü (kredi kartı ekranı ya da ödeme dekontu). Yalnız ekranda AÇIKÇA görünen değerleri oku, tahmin etme; görünmeyen alan null olsun. Bugün '+tarihYaz(bugun())+'. Kullanıcının kartları: '+bankalar+'.\nSadece şu JSON\'u döndür: {"tur":"kart" ya da "dekont","banka":"","kartAdi":"","limit":null,"kullanilabilir":null,"toplamBorc":null,"ekstreBorcu":null,"kalanEkstre":null,"asgari":null,"sonOdeme":null,"kesimTarihi":null,"odemeTutari":null}\nKurallar: toplamBorc = Güncel borç / Toplam borç / Toplam kart borcu. ekstreBorcu = (son) ekstre borcu. kalanEkstre = kalan ekstre borcu / son ekstreden kalan borç / ödenmemiş ekstre borcu. asgari = (kalan) asgari ya da minimum ödeme tutarı. sonOdeme = bu dönemin son ödeme tarihi YYYY-AA-GG (\'Sonraki\' yazanı alma). kesimTarihi = ekstre/hesap kesim tarihi YYYY-AA-GG. Dekontsa odemeTutari = ödenen tutar. Sayıları düz sayı yaz (121199.61), TL yazma.';
+  (function sonraki(){if(i>=fl.length){gorselOnizle();return;}var f=fl[i];$('ghDurum').textContent='⏳ '+(i+1)+'/'+fl.length+' okunuyor…';
+    kucult(f).then(function(b64){return gemini([{text:istem},{inline_data:{mime_type:'image/jpeg',data:b64}}],true);})
+    .then(function(t){var a=t.indexOf('{'),z=t.lastIndexOf('}');var d=JSON.parse(t.slice(a,z+1));d.kart=kartEslestir(d);GH.oneriler.push(d);})
+    .catch(function(){GH.oneriler.push({hata:true,dosya:f.name});})
+    .then(function(){i++;sonraki();});})();}
+function sayiVar(x){return x!==null&&x!==undefined&&x!==''&&!isNaN(sayi(x));}
+function degisimler(d){var c=d.kart,L=[];if(!c)return L;var ek=function(alan,ad,yeni,eski,tarih){if(yeni==null)return;L.push({alan:alan,ad:ad,yeni:yeni,eski:eski,tarih:tarih});};
+  if(d.tur==='dekont'&&sayiVar(d.odemeTutari)){L.push({alan:'_odeme',ad:'Ödeme işlenecek',yeni:sayi(d.odemeTutari),eski:null});return L;}
+  if(sayiVar(d.limit))ek('limit','Kart limiti',sayi(d.limit),c.limit);
+  if(sayiVar(d.kullanilabilir))ek('kullanilabilir','Kullanılabilir',sayi(d.kullanilabilir),c.kullanilabilir);
+  if(sayiVar(d.toplamBorc))ek('toplamBorc','Toplam borç',sayi(d.toplamBorc),c.toplamBorc);
+  var ke=sayiVar(d.kalanEkstre)?sayi(d.kalanEkstre):(sayiVar(d.ekstreBorcu)?sayi(d.ekstreBorcu):null);
+  if(ke!=null)ek('kalanEkstre','Kalan ekstre',ke,c.ekstreBekleniyor?null:c.kalanEkstre);
+  if(sayiVar(d.asgari))ek('kalanAsgari','Kalan asgari',sayi(d.asgari),c.kalanAsgari);
+  if(d.sonOdeme&&/^\d{4}-\d{2}-\d{2}$/.test(d.sonOdeme))ek('sonOdeme','Son ödeme',d.sonOdeme,c.sonOdeme,true);
+  if(d.kesimTarihi&&/^\d{4}-\d{2}-\d{2}$/.test(d.kesimTarihi))ek('kesimGunu','Kesim günü',tarihOku(d.kesimTarihi).getDate(),c.kesimGunu);
+  return L;}
+function degerYaz(x,tarih,alan){if(x==null||x==='')return '—';if(tarih)return trTarih(tarihOku(x));if(alan==='kesimGunu')return 'ayın '+x+'\'i';return tl(x,true);}
+function gorselOnizle(){var h='<h2 style="margin-top:0">📸 Okunanlar</h2><p class="soluk" style="margin-top:0">Kontrol et, doğruysa uygula.</p>';
+  GH.oneriler.forEach(function(d,k){
+    if(d.hata){h+='<div class="hat">❌ Bir görüntü okunamadı. Yapay zekâ yoğun olabilir; biraz sonra tekrar dene.</div>';return;}
+    var L=degisimler(d);d.L=L;
+    h+='<div class="hat"><div class="satir ara"><b>'+(d.kart?'<span class="serit" style="display:inline-block;width:6px;height:16px;background:'+esc(d.kart.renk)+';margin-right:6px"></span>'+esc(d.kart.banka):'❔ Kart bulunamadı ('+esc(d.banka||'?')+')')+'</b>'+(L.length?'<input type="checkbox" id="ghS'+k+'" checked style="width:26px;height:26px" aria-label="Uygula">':'')+'</div>';
+    if(!d.kart)h+='<label>Hangi kart?</label><select onchange="GH.oneriler['+k+'].kart=kartBul(this.value);gorselOnizle()"><option value="">Seç</option>'+V.kartlar.map(function(c){return '<option value="'+c.id+'">'+esc(c.banka)+'</option>';}).join('')+'</select>';
+    else if(!L.length)h+='<p class="soluk">Bu görüntüde güncellenecek rakam bulunamadı.</p>';
+    else h+='<table class="tablo">'+L.map(function(x){return '<tr><td>'+x.ad+(x.eski!=null&&x.alan!=='_odeme'?'<br><span class="soluk">eski: '+degerYaz(x.eski,x.tarih,x.alan)+'</span>':'')+'</td><td>'+degerYaz(x.yeni,x.tarih,x.alan)+'</td></tr>';}).join('')+'</table>';
+    h+='</div>';});
+  h+='<div style="height:10px"></div><button class="btn" onclick="gorselUygula()">✅ Uygula</button><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="kapat()">Vazgeç</button>';
+  ac(h);}
+function gorselUygula(){var once=JSON.stringify(V.kartlar),n=0;
+  GH.oneriler.forEach(function(d,k){var c=d.kart,ch=$('ghS'+k);if(!c||!d.L||!d.L.length||(ch&&!ch.checked))return;n++;
+    var m={};d.L.forEach(function(x){m[x.alan]=x.yeni;});
+    if(m._odeme!=null){var t=m._odeme;if(c.ekstreBekleniyor){if(c.tahminiEkstre!=null&&c.tahminiEkstre!=='')c.tahminiEkstre=Math.max(0,sayi(c.tahminiEkstre)-t);}else{c.kalanEkstre=Math.max(0,(+c.kalanEkstre||0)-t);if(c.kalanAsgari!=null&&c.kalanAsgari!=='')c.kalanAsgari=Math.max(0,(+c.kalanAsgari||0)-t);}
+      c.toplamBorc=Math.max(0,(+c.toplamBorc||0)-t);c.kullanilabilir=Math.min(+c.limit||Infinity,(+c.kullanilabilir||0)+t);V.odemeler.push({t:tarihYaz(bugun()),k:c.id,m:t});return;}
+    ['limit','kullanilabilir','toplamBorc','kesimGunu'].forEach(function(a){if(m[a]!=null)c[a]=m[a];});
+    var yeniDonem=m.sonOdeme&&m.sonOdeme!==c.sonOdeme;
+    if(m.sonOdeme){c.sonOdeme=m.sonOdeme;c.odemeGunu=tarihOku(m.sonOdeme).getDate();}
+    if(m.kalanEkstre!=null){c.kalanEkstre=m.kalanEkstre;c.ekstreBekleniyor=false;c.tahminiEkstre=null;
+      if(m.kalanAsgari!=null)c.kalanAsgari=m.kalanAsgari;else if(yeniDonem)c.kalanAsgari=Math.round(m.kalanEkstre*oran(c));}
+    else if(m.kalanAsgari!=null){c.kalanAsgari=m.kalanAsgari;}
+    else if(yeniDonem){c.ekstreBekleniyor=true;c.tahminiEkstre=null;}
+  });
+  if(!n){toast('Uygulanacak bir şey seçilmedi');return;}
+  kaydet();kapat();yenile();geriAlToast(n+' kart güncellendi ✅',function(){V.kartlar=JSON.parse(once);kaydet();yenile();});}
+
+/* ---------- 🎯 senaryolar ---------- */
+var SN={butce:0,strateji:'kucuk'};
+function kartFaizi(b){var y=b<30000?3.25:b<=180000?3.75:4.25;return y*(1+V.ayar.vergi/100)/100;}
+function simule(B,strateji){
+  var K=V.kartlar.filter(function(c){return (+c.toplamBorc||0)>1;}).map(function(c){return{c:c,b:+c.toplamBorc,oran:oran(c),
+    ilkMin:(!c.ekstreBekleniyor&&c.kalanAsgari!=null&&c.kalanAsgari!=='')?(+c.kalanAsgari||0):null,kapandi:0};});
+  var dmal=(V.ayar.komisyon+V.ayar.makas)/100,faiz=0,dAy=0,dTop=0,mx=0,ilk=[],ay=0,kapananlar=[];
+  for(ay=1;ay<=72;ay++){
+    var acik=K.filter(function(k){return k.b>1;});if(!acik.length){ay--;break;}
+    var min=K.map(function(k){if(k.b<=1)return 0;var m=(ay===1&&k.ilkMin!=null)?k.ilkMin:k.b*k.oran;return Math.min(k.b,Math.max(m,Math.min(k.b,500)));});
+    var tmin=min.reduce(function(s,x){return s+x;},0),ode=min.slice(),artan=B-tmin;
+    if(artan<0){dAy++;dTop+=-artan;mx=Math.max(mx,-artan);var hedef=K.reduce(function(a,k){var bos=(+k.c.limit||0)-k.b;return (!a||bos>a.bos)?{k:k,bos:bos}:a;},null);if(hedef)hedef.k.b+=(-artan)*(1+dmal);artan=0;}
+    var sira=K.map(function(k,i){return i;}).filter(function(i){return K[i].b-ode[i]>1;});
+    sira.sort(function(x,y){return strateji==='kucuk'?(K[x].b-K[y].b):(K[y].b-K[x].b);});
+    sira.forEach(function(i){if(artan<=0)return;var v=Math.min(artan,K[i].b-ode[i]);ode[i]+=v;artan-=v;});
+    if(ay===1)ilk=K.map(function(k,i){return{c:k.c,tutar:ode[i],min:min[i]};}).filter(function(x){return x.tutar>0;});
+    K.forEach(function(k,i){var kal=Math.max(0,k.b-ode[i]),f=kal*kartFaizi(kal);faiz+=f;k.b=kal>1?kal+f:0;if(k.b===0&&!k.kapandi){k.kapandi=ay;kapananlar.push({ay:ay,c:k.c});}});
+  }
+  return{ay:ay>72?null:ay,faiz:faiz+dTop*dmal,dAy:dAy,dTop:dTop,mx:mx,ilk:ilk,kapananlar:kapananlar};}
+function ayAdi(n){var d=new Date(bugun().getFullYear(),bugun().getMonth()+n,1);return AYLAR[d.getMonth()]+' '+d.getFullYear();}
+function senaryoKarti(){if(V.kilitli)return '';var B=SN.butce||elde()||0;
+  var h='<div class="k"><h2>🎯 Senaryolar — “asgari + biraz fazla”</h2><p class="soluk" style="margin-top:0">Her ay karta ne kadar ayırırsan borç ne zaman biter? Kartları kullanmaya devam etmediğin varsayılır.</p>'+
+   '<label for="snB">Her ay kartlara ayırabileceğim para</label><input id="snB" inputmode="decimal" value="'+(B?B.toLocaleString('tr-TR'):'')+'" onchange="SN.butce=sayi(this.value);cizPlan()">'+
+   '<div class="secim" style="margin-top:8px">'+[50000,60000,70000,80000].map(function(x){return '<button class="'+(B===x?'sec':'')+'" onclick="SN.butce='+x+';cizPlan()">'+(x/1000)+' bin</button>';}).join('')+'</div>';
+  if(!B)return h+'<p class="soluk">Tutarı yaz ya da seç.</p></div>';
+  var A=simule(B,'kucuk'),Bb=simule(B,'buyuk');
+  var sat=function(ad,s){return '<tr><td><b>'+ad+'</b>'+(s.dAy?'<br><span style="color:var(--kirmizi)">⛔ '+s.dAy+' ay asgari yetmiyor (en çok ayda '+tl(s.mx)+' açık)</span>':'<br><span style="color:var(--yesil)">✅ Döndürme gerekmiyor</span>')+'</td><td>'+(s.ay?ayAdi(s.ay)+'<br><span class="soluk">'+s.ay+' ay</span>':'6 yıldan uzun')+'<br><span class="soluk">faiz+masraf '+tl(s.faiz)+'</span></td></tr>';};
+  h+='<table class="tablo" style="margin-top:12px">'+sat('Küçük kartı önce kapat',A)+sat('Büyük borca yüklen',Bb)+'</table>';
+  var P=V.kartlar.reduce(function(s,c){return s+(+c.toplamBorc||0);},0),r=3*(1+V.ayar.vergi/100)/100,tk24=taksitHesap(P,24,r*100);
+  h+='<p class="soluk" style="margin:8px 0 0">Karşılaştırma: tüm borç 24 ay sabit taksit (aylık %3 + vergi) olsaydı ayda '+tl(tk24)+', toplam faiz '+tl(tk24*24-P)+'.</p>';
+  var S=SN.strateji==='buyuk'?Bb:A;
+  h+='<div class="secim" style="margin-top:12px"><button class="'+(SN.strateji==='kucuk'?'sec':'')+'" onclick="SN.strateji=\'kucuk\';cizPlan()">Küçükten başla</button><button class="'+(SN.strateji==='buyuk'?'sec':'')+'" onclick="SN.strateji=\'buyuk\';cizPlan()">Büyükten başla</button></div>';
+  h+='<h3 style="margin:14px 0 4px">📋 Bu ay hangi karta ne kadar?</h3><table class="tablo">'+S.ilk.sort(function(a,b){return a.c.odemeGunu-b.c.odemeGunu;}).map(function(x){return '<tr><td><span class="serit" style="display:inline-block;width:6px;height:14px;background:'+esc(x.c.renk)+';margin-right:6px"></span>'+esc(x.c.banka)+'<br><span class="soluk">asgari ~'+tl(x.min)+(x.tutar-x.min>1?' + fazladan '+tl(x.tutar-x.min):'')+'</span></td><td>'+tl(x.tutar)+'</td></tr>';}).join('')+'</table>';
+  if(S.kapananlar.length)h+='<h3 style="margin:14px 0 4px">🏁 Kartlar ne zaman biter?</h3>'+S.kapananlar.map(function(k){return '<div>✅ <b>'+esc(k.c.banka)+'</b> — '+ayAdi(k.ay)+'</div>';}).join('');
+  h+='<p class="soluk" style="margin:10px 0 0">Yaklaşık hesaptır: kart faizi borca göre aylık %3,25–4,25 + vergi alındı. Gerçek ekstreler gelince rakamları 📸 ile güncelle, hesap kendiliğinden yenilenir.</p></div>';
+  return h;}
 
 /* ---------- 🤖 akıllı danışman ---------- */
 var GMODEL='gemini-2.5-flash';
