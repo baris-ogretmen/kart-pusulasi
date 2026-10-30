@@ -56,8 +56,10 @@ body.koyu .uyari{background:#2a1414;color:#fecaca}
 .dugmeler button{flex:1;min-width:90px;font-weight:700}
 .kartk .dugmeler button{background:rgba(255,255,255,.2);color:#fff}
 #alt{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--kart);border-top:1px solid var(--cizgi);display:flex;padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
-#alt button{flex:1;background:none;color:var(--soluk);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.72em;padding:6px 0;border-radius:12px}
-#alt button b{font-size:1.5em;line-height:1}
+#alt button{flex:1;min-width:0;background:none;color:var(--soluk);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.72em;padding:6px 0;border-radius:12px}
+#alt button b{font-size:1.4em;line-height:1}
+@keyframes nefes{0%{transform:scale(.6)}100%{transform:scale(1)}}
+.nefesTop{width:170px;height:170px;border-radius:50%;margin:16px auto;background:radial-gradient(circle,#5eead4,#0f766e);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.2em;transform:scale(.6);transition:transform 4s ease-in-out}
 #alt button.sec{color:var(--ana);font-weight:800;background:rgba(15,118,110,.1)}
 #perde{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:50;display:none;align-items:flex-end;justify-content:center}
 #perde.acik{display:flex}
@@ -95,6 +97,7 @@ body.koyu .uyari{background:#2a1414;color:#fecaca}
   <section class="sayfa" id="s-kartlar"></section>
   <section class="sayfa" id="s-avans"></section>
   <section class="sayfa" id="s-plan"></section>
+  <section class="sayfa" id="s-huzur"></section>
   <section class="sayfa" id="s-ayarlar"></section>
 </main>
 <nav id="alt" aria-label="Alt menü">
@@ -102,6 +105,7 @@ body.koyu .uyari{background:#2a1414;color:#fecaca}
   <button data-s="kartlar" aria-label="Kartlar"><b>💳</b>Kartlar</button>
   <button data-s="avans" aria-label="Nakit avans"><b>💸</b>Avans</button>
   <button data-s="plan" aria-label="Aylık plan"><b>🧮</b>Plan</button>
+  <button data-s="huzur" aria-label="Huzur köşesi"><b>🤲</b>Huzur</button>
   <button data-s="ayarlar" aria-label="Ayarlar"><b>⚙️</b>Ayarlar</button>
 </nav>
 <div id="perde" onclick="if(event.target===this)kapat()"><div id="sayfaAlt" role="dialog" aria-modal="true"></div></div>
@@ -110,8 +114,8 @@ body.koyu .uyari{background:#2a1414;color:#fecaca}
 
 <script>
 /* ===== Kart Pusulası — Barış Öğretmen ===== */
-var SURUM=7;
-var YENILIKLER=['💳 Bütün kartlar tek listede: borca ya da ödeme tarihine göre sırala','🏁 Kapatma planı: asgariyi öde, kalanı taksitlendir, kartın hangi ay kapanacağını gör','🔒 Kapatılacak kartlar artık döndürme ve avans önerilerine girmez','🪙 Altınla döndürme planı: hangi ödeme için hangi kartla ne kadar altın alacağın hazır','📆 Bu ayın döndürme takvimi: açık kalan her ödeme için en uygun kart','✅ “Bunu yaptım” deyince iki kart da kendiliğinden güncellenir','✓ “Asgariyi / bir tık fazlasını ödedim” tek dokunuş: borçtan asgari kadar düşer','↩️ Yanlış dokunursan “Geri al”','🎯 Ödeme ekranında “Plana göre” tutarı hazır','📸 Banka ekran görüntüsünü ver, rakamları kendisi okusun ve kartı güncellesin','🧾 Ödeme dekontunu ver, ödemeyi kendisi işlesin','🎯 Senaryolar: “asgari + biraz fazla” ile borç hangi ay biter, ay ay hesap','📋 Bu ayın ödeme listesi: hangi karta ne kadar yatıracağın hazır'];
+var SURUM=9;
+var YENILIKLER=['🤲 Huzur köşesi: günün ayeti, borç duaları, 1 dakikalık nefes, uyku öncesi rahatlama','💡 Ek gelir fikirleri: senin işine uygun, borcu kaç ay öne çeker hesabıyla','🌙 Akşam “kafamdakini bırak” defteri','🗓️ Bugün ekranı sadeleşti: tarih sırasıyla tek bir “Bu ayın planı”','🪙 Hangi gün hangi kartla kaç bin altın alacağın — ekstre kesim tarihine göre','✅ Her adımı “Yaptım” diye işaretle, kartlar kendiliğinden güncellensin','🤖 Danışman artık senin yönteminle pratik öneri veriyor','💳 Bütün kartlar tek listede: borca ya da ödeme tarihine göre sırala','🏁 Kapatma planı: asgariyi öde, kalanı taksitlendir, kartın hangi ay kapanacağını gör','🔒 Kapatılacak kartlar artık döndürme ve avans önerilerine girmez','🪙 Altınla döndürme planı: hangi ödeme için hangi kartla ne kadar altın alacağın hazır','📆 Bu ayın döndürme takvimi: açık kalan her ödeme için en uygun kart','✅ “Bunu yaptım” deyince iki kart da kendiliğinden güncellenir','✓ “Asgariyi / bir tık fazlasını ödedim” tek dokunuş: borçtan asgari kadar düşer','↩️ Yanlış dokunursan “Geri al”','🎯 Ödeme ekranında “Plana göre” tutarı hazır','📸 Banka ekran görüntüsünü ver, rakamları kendisi okusun ve kartı güncellesin','🧾 Ödeme dekontunu ver, ödemeyi kendisi işlesin','🎯 Senaryolar: “asgari + biraz fazla” ile borç hangi ay biter, ay ay hesap','📋 Bu ayın ödeme listesi: hangi karta ne kadar yatıracağın hazır'];
 var SIFRELI={"s":"o3ZSxfUUX/cH/UZ1jKaAlw==","iv":"1QiUwzcJM+A3kHpY","c":"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"};
 var VARSAYILAN=[
 {banka:'İş Bankası',ad:'Maximum Platinum',renk:'#0b4ea2',sonOdeme:'2026-11-04',kesimGunu:25,odemeGunu:4},
@@ -134,7 +138,7 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){retur
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
 
 /* ---------- veri ---------- */
-var BOS={kartlar:[],gelir:{maas:0,ek:0},gider:{kira:0,diger:0},ayar:{faiz:4.25,vergi:30,komisyon:5,makas:2},odemeler:[]};
+var BOS={kartlar:[],gelir:{maas:0,ek:0,gun:15},gider:{kira:0,diger:0},ayar:{faiz:4.25,vergi:30,komisyon:5,makas:2},odemeler:[]};
 var V;
 function yukle(){try{V=JSON.parse(ls('kp_veri')||'null');}catch(e){V=null;}if(!V){V=JSON.parse(JSON.stringify(BOS));V.kilitli=true;V.kartlar=VARSAYILAN.map(function(c){return Object.assign({id:yeniId(),limit:0,kullanilabilir:0,toplamBorc:0,kalanEkstre:0,kalanAsgari:0,ekstreBekleniyor:true},c);});}
   if(!V.kartlar.length&&!V.bosOnay){V.kilitli=true;V.kartlar=VARSAYILAN.map(function(c){return Object.assign({id:yeniId(),limit:0,kullanilabilir:0,toplamBorc:0,kalanEkstre:0,kalanAsgari:0,ekstreBekleniyor:true},c);});}
@@ -217,27 +221,13 @@ function cizAna(){
   var el=$('s-ana');
   if(V.kilitli){var b0=bugun();el.innerHTML=kilitKarti()+'<div class="k"><h2>🗓️ Ödeme günlerin</h2>'+V.kartlar.slice().sort(function(a,b){return tarihOku(a.sonOdeme)-tarihOku(b.sonOdeme);}).map(function(c){var d=tarihOku(c.sonOdeme);return '<div class="olay"><div class="tarih">'+d.getDate()+'<small>'+AYLAR[d.getMonth()].slice(0,3)+'</small></div><div class="serit" style="background:'+esc(c.renk)+'"></div><div style="flex:1"><b>'+esc(c.banka)+'</b> <span class="etiket e-normal">'+kalanYazi(gunFark(d))+'</span><br><span class="soluk">'+esc(c.ad)+' · kesim '+c.kesimGunu+', ödeme '+c.odemeGunu+'</span></div></div>';}).join('')+'</div>';return;}
   if(!V.kartlar.length){el.innerHTML='<div class="k"><h2>👋 Hoş geldin</h2><p>Kartlarını ekleyerek başla. Sana bir “kart bilgileri” metni verildiyse tek dokunuşla yükleyebilirsin.</p><button class="btn" onclick="iceAktarAc()">📥 Kart bilgilerimi yapıştır</button><div style="height:8px"></div><button class="btn2" style="width:100%" onclick="kartDuzenle()">➕ Kartı elle ekle</button></div>';return;}
-  var L=olaylar(),b=bugun(),gec=L.filter(function(o){return o.tip==='gecikti';}),
-      ay=L.filter(function(o){return o.tip!=='gecikti'&&o.d>=0&&o.d<=30;}),t=toplamlar();
-  var ayToplam=ay.reduce(function(s,o){return s+(+o.tutar||0);},0)+gec.reduce(function(s,o){return s+(o.bilinmiyor?0:+o.tutar||0);},0);
-  var el2=elde();
+  var L=olaylar(),b=bugun(),gec=L.filter(function(o){return o.tip==='gecikti';});
   var h='<div class="soluk" style="margin:2px 4px 10px">'+trTarih(b,true)+' '+b.getFullYear()+'</div>';
-  if(gec.length){h+='<div class="k uyari"><h2>🚨 Önce bunlar</h2>';gec.forEach(function(o){h+=olaySatiri(o,true);});
-    h+='<p style="margin:10px 0 0;font-size:.92em">Bugün bankayı ara: <b>“Ekstre borcumu taksitlendirmek / yapılandırmak istiyorum.”</b> Gecikme uzarsa kart kapanır ve kayda geçer.</p></div>';}
-  var ilk=ay[0];
-  if(ilk){h+='<div class="k" style="border-top:6px solid '+esc(ilk.c.renk)+'"><div class="soluk">📅 Sıradaki ödeme</div><div class="satir ara"><div><div class="buyuk">'+esc(ilk.c.banka)+'</div><div>'+trTarih(ilk.tarih,true)+' · <b>'+kalanYazi(ilk.d)+'</b></div></div></div>'+
-    '<table class="tablo" style="margin-top:8px"><tr><td>Asgari'+(ilk.tahmini?' (tahmini)':'')+'</td><td>'+tl(ilk.tutar)+'</td></tr><tr><td>Tamamı</td><td>'+tl(ilk.tam)+'</td></tr></table>'+
-    '<button class="btn" style="margin-top:10px" onclick="odeHizli(\''+ilk.c.id+'\')">✓ Asgariyi / bir tık fazlasını ödedim</button><button class="btn2" style="width:100%;margin-top:8px;background:none;text-decoration:underline;min-height:36px" onclick="odeAc(\''+ilk.c.id+'\')">Başka tutar / tamamını ödedim</button></div>';}
-  h+='<button class="btn2" style="width:100%;margin-bottom:12px" onclick="gorselAc()">📸 Ödeme yaptım / ekstre geldi — ekran görüntüsünü ver</button>';
-  h+='<div class="k"><h2>🗓️ Önümüzdeki 30 gün</h2>'+(ay.length?ay.map(function(o){return olaySatiri(o,false);}).join(''):'<p class="soluk">30 gün içinde ödeme yok.</p>')+'</div>';
+  var gs=gununSozu();h+='<div class="k" style="background:linear-gradient(135deg,#0f766e,#0e4f63);color:#fff;cursor:pointer" onclick="git(\'huzur\')"><div style="font-size:1.05em">🤲 '+esc(gs.m)+'</div><div style="opacity:.8;font-size:.85em;margin-top:6px">'+esc(gs.k)+' · Huzur köşesine dokun</div></div>';
+  if(gec.length){h+='<div class="k uyari"><h2>🚨 Ödemesi geçmiş</h2>';gec.forEach(function(o){h+=olaySatiri(o,true);});h+='</div>';}
+  h+=aylikPlanKarti();
+  h+='<button class="btn2" style="width:100%;margin-bottom:12px" onclick="gorselAc()">📸 Ekstre geldi / ödeme yaptım — ekran görüntüsünü ver</button>';
   h+=butunKartlar();
-  var acik=ayToplam-el2;
-  h+='<div class="k '+(acik>0?'uyari':'iyi')+'"><h2>🧮 Bu ayın özeti</h2><table class="tablo">'+
-    '<tr><td>Asgari ödemeler toplamı</td><td>'+tl(ayToplam)+'</td></tr>'+
-    '<tr><td>Kira ve giderlerden sonra elinde</td><td>'+(el2?tl(el2):'<a href="#plan">gelirini yaz</a>')+'</td></tr>'+
-    (el2?'<tr><td>'+(acik>0?'⛔ Açık':'✅ Artan')+'</td><td>'+tl(Math.abs(acik))+'</td></tr>':'')+'</table>'+
-    (acik>0&&el2?'<p style="margin:10px 0 0;font-size:.92em">Bu açık nakit avansla kapanmaz, her ay büyür. <a href="#plan">🆘 Çıkış yolunu gör</a></p>':'')+'</div>';
-  h+='<div class="k"><div class="izgara"><div><div class="soluk">Toplam borç</div><b>'+tl(t.borc)+'</b></div><div><div class="soluk">Toplam limit</div><b>'+tl(t.limit)+'</b></div><div><div class="soluk">Kullanılabilir</div><b>'+tl(t.kul)+'</b></div></div></div>';
   el.innerHTML=h;
 }
 function cizKartlar(){
@@ -296,6 +286,53 @@ function cizAvans(){
    '<p class="soluk">Nakit avans azami faizi bugün aylık %4,25; vergiler (KKDF %15 + BSMV %15) üstüne eklenir.</p></div>';
   el.innerHTML=h;
 }
+/* --- 🗓️ bu ayın planı --- */
+function maasTarihi(){var g=Math.min(31,Math.max(1,parseInt(V.gelir.gun)||15)),b=bugun();var d=ayinGunu(b.getFullYear(),b.getMonth(),g);if(d<b)d=ayinGunu(b.getFullYear(),b.getMonth()+1,g);return d;}
+function planUret(){var b=bugun(),k=dgOran(),kasa=elde(),mt=maasTarihi(),kul={},A=[];
+  var P=olaylar().filter(function(o){return o.tip!=='gecikti'&&o.d>=0&&o.d<=35&&(+o.tutar||0)>0;}).map(function(o){return{c:o.c,tarih:o.tarih,tutar:Math.round(+o.tutar),taksit:!!o.taksit,nakit:0};}).sort(function(x,y){return x.tarih-y.tarih;});
+  P.forEach(function(p){if(p.tarih>=mt&&kasa>0){p.nakit=Math.min(kasa,p.tutar);kasa-=p.nakit;}p.altin=p.tutar-p.nakit;});
+  var turlar=[],son=null;
+  P.forEach(function(p){if(p.altin<=0||p.altin<5000)return;
+    if(son&&(p.tarih-son.tarih)/864e5<=10&&son.hedef.indexOf(p.c.id)<0&&p.c.id!==son.kaynak.id){var gerek=Math.ceil((son.net+p.altin)/(1-k)/1000)*1000;if((+son.kaynak.kullanilabilir||0)-(kul[son.kaynak.id]||0)>=gerek){son.net+=p.altin;son.hedef.push(p.c.id);son.odemeler.push(p);return;}}
+    if(son)kul[son.kaynak.id]=(kul[son.kaynak.id]||0)+Math.ceil(son.net/(1-k)/1000)*1000;
+    var alis=new Date(Math.max(b.getTime(),p.tarih.getTime()-2*864e5));var r=kaynakOner(p.c.id,Math.ceil(p.altin/1000)*1000,alis,kul),en=r.L.filter(function(x){return x.ok;})[0];
+    if(!en){p.yok=true;son=null;return;}
+    son={tarih:alis,kaynak:en.c,son:en.son,nefes:en.nefes,net:p.altin,hedef:[p.c.id],odemeler:[p]};turlar.push(son);});
+  P.filter(function(p){return p.altin>0&&p.altin<5000;}).forEach(function(p){
+    var ad=turlar.filter(function(x){return x.kaynak.id!==p.c.id&&x.hedef.indexOf(p.c.id)<0;});var x=ad.filter(function(y){return y.tarih<=p.tarih;}).pop()||ad[0];
+    if(!x){var alis=new Date(Math.max(b.getTime(),p.tarih.getTime()-2*864e5)),en=kaynakOner(p.c.id,5000,alis,kul).L.filter(function(z){return z.ok;})[0];if(!en){p.yok=true;return;}x={tarih:alis,kaynak:en.c,son:en.son,nefes:en.nefes,net:0,hedef:[],odemeler:[]};turlar.push(x);}
+    if(x.tarih>p.tarih)x.tarih=new Date(Math.max(b.getTime(),p.tarih.getTime()-864e5));x.net+=p.altin;x.hedef.push(p.c.id);x.odemeler.push(p);});
+  turlar.forEach(function(x){x.brut=Math.ceil(x.net/(1-k)/1000)*1000;A.push({id:'a_'+x.kaynak.id+'_'+tarihYaz(x.tarih),tip:'altin',tarih:tarihYaz(x.tarih),k:x.kaynak.id,brut:x.brut,net:Math.round(x.brut*(1-k)),son:tarihYaz(x.son),nefes:x.nefes,hedefler:x.hedef});});
+  if((mt-b)/864e5<=35&&elde()>0)A.push({id:'m_'+tarihYaz(mt),tip:'maas',tarih:tarihYaz(mt),tutar:elde(),artan:Math.max(0,Math.round(kasa))});
+  P.forEach(function(p){A.push({id:'o_'+p.c.id+'_'+tarihYaz(p.tarih),tip:'ode',tarih:tarihYaz(p.tarih),k:p.c.id,tutar:p.tutar,nakit:p.nakit,altin:p.altin,yok:!!p.yok,taksit:p.taksit});});
+  var sira={altin:0,maas:1,ode:2};A.sort(function(x,y){return (x.tarih<y.tarih?-1:x.tarih>y.tarih?1:0)||(sira[x.tip]-sira[y.tip]);});
+  return{olusma:tarihYaz(b),adimlar:A};}
+function planGetir(zorla){var p=V.ayPlan,b=tarihYaz(bugun());
+  var bitti=p&&p.adimlar&&p.adimlar.every(function(a){return a.tamam||a.tarih<b;});
+  if(zorla||!p||!p.adimlar||!p.adimlar.length||bitti){V.ayPlan=planUret();ls('kp_veri',JSON.stringify(V));}
+  return V.ayPlan;}
+function planYenile(){planGetir(true);kaydet();yenile();toast('Plan güncel rakamlarla yenilendi 🔄');}
+function aylikPlanKarti(){var p=planGetir(),b=tarihYaz(bugun()),mas=0;
+  var h='<div class="k" style="border-top:6px solid var(--ana)"><div class="satir ara"><h2 style="margin:0">🗓️ Bu ayın planı</h2><button class="btn2" style="padding:6px 10px;min-height:36px" onclick="planYenile()" aria-label="Planı yenile">🔄</button></div>'+
+   '<p class="soluk" style="margin:6px 0 4px">Kartlar ekstre kesim tarihine göre seçildi: aldığın altın bir sonraki ekstreye girer, ~1 ay nefes alırsın. Para yatış günü: ayın '+(V.gelir.gun||15)+'\'i <a href="#plan">✏️</a></p>';
+  if(!p.adimlar.length)return h+'<p>Önümüzdeki 35 günde ödeme yok. 🎉</p></div>';
+  p.adimlar.forEach(function(a,i){var d=tarihOku(a.tarih),f=gunFark(d),gecti=a.tarih<b&&!a.tamam,c=a.k?kartBul(a.k):null,ic='',alt='',tus='';
+    if(a.tip==='altin'){if(!c)return;mas+=a.brut-a.net;var hd=(a.hedefler||[]).map(function(id){var x=kartBul(id);return x?x.banka:'';}).join(' + ');
+      ic='🪙 <b>'+esc(c.banka)+'</b> ile <b>'+tl(a.brut)+'</b> altın al → sat';alt='Eline ~'+tl(a.net)+' geçer · '+esc(hd)+' için<br>Bu harcamayı '+trTarih(tarihOku(a.son))+'\'a kadar ödersin ('+a.nefes+' gün)';
+      tus='<button class="btn2" style="padding:6px 14px;min-height:40px" onclick="adimYap('+i+')">✅ Aldım</button>';}
+    else if(a.tip==='maas'){ic='💰 <b>Para yatar</b> · kiradan sonra '+tl(a.tutar);alt='Bu tarihten sonraki ödemeler buradan'+(a.artan?' · ödemelerden sonra elinde ~'+tl(a.artan)+' kalır':'');}
+    else {if(!c)return;ic='💳 <b>'+esc(c.banka)+'</b> öde: <b>'+tl(a.tutar)+'</b>';alt=(a.taksit?'Taksit':'Asgari')+(a.nakit&&a.altin>0?' · '+tl(a.nakit)+' maaştan + '+tl(a.altin)+' altından':a.nakit?' · maaştan':' · altın parasından')+(a.yok?' · ⛔ boş limit yetmiyor, bankayı ara':'');
+      tus='<button class="btn2" style="padding:6px 14px;min-height:40px" onclick="adimYap('+i+')">✅ Ödedim</button>';}
+    var renk=c?c.renk:'#16a34a',bg=f===0&&!a.tamam?'background:var(--ana);color:#fff':gecti?'background:#fee2e2;color:#991b1b':'';
+    h+='<div class="olay" style="'+(a.tamam?'opacity:.45':'')+'"><div class="tarih" style="'+bg+'">'+d.getDate()+'<small style="'+(f===0&&!a.tamam?'color:#fff':'')+'">'+AYLAR[d.getMonth()].slice(0,3)+'</small></div><div class="serit" style="background:'+esc(renk)+'"></div>'+
+      '<div style="flex:1;min-width:0">'+ic+'<br><span class="soluk">'+(a.tamam?'✅ Yapıldı':(f===0?'<b style="color:var(--ana)">BUGÜN</b> · ':gecti?'<b style="color:var(--kirmizi)">Gecikti!</b> · ':f===1?'Yarın · ':f+' gün sonra · ')+alt)+'</span>'+(a.tamam?'':'<div style="margin-top:6px">'+tus+'</div>')+'</div></div>';});
+  return h+'<p class="soluk" style="margin:10px 0 0">Bu planın döndürme masrafı: ~'+tl(mas)+' · Rakamlar değişirse 🔄 ile yenile.</p></div>';}
+function adimYap(i){var p=V.ayPlan,a=p&&p.adimlar[i];if(!a)return;var c=kartBul(a.k);if(!c)return;var once=JSON.stringify(V);
+  if(a.tip==='altin'){c.toplamBorc=(+c.toplamBorc||0)+a.brut;c.kullanilabilir=Math.max(0,(+c.kullanilabilir||0)-a.brut);if(c.ekstreBekleniyor&&c.tahminiEkstre!=null&&c.tahminiEkstre!=='')c.tahminiEkstre=sayi(c.tahminiEkstre)+a.brut;
+    V.donguler=V.donguler||[];V.donguler.push({t:tarihYaz(bugun()),k:c.id,h:(a.hedefler||[]).join(','),brut:a.brut,net:a.net});}
+  else odemeIsle(c,a.tutar);
+  a.tamam=true;kaydet();yenile();geriAlToast(a.tip==='altin'?c.banka+' ile '+tl(a.brut)+' altın işlendi ✅':c.banka+' '+tl(a.tutar)+' ödendi ✅',function(){V=JSON.parse(once);kaydet();yenile();});}
+
 /* --- 💳 sıralama & bütün kartlar --- */
 function sonrakiOdeme(c){var L=olaylar().filter(function(o){return o.c.id===c.id;});return L.sort(function(a,b){return a.tarih-b.tarih;})[0];}
 function kartSirala(m){var L=V.kartlar.slice();
@@ -385,7 +422,7 @@ function donguKarti(){if(V.kilitli)return '';var b=bugun(),k=dgOran(),T=donguTak
   } else {var P=bolusturme(hc.id,DG.net,alis);
     h+=P?'<div class="hat" style="margin-top:12px"><b>Tek kartın limiti yetmiyor — böl:</b>'+P.map(function(p){return '<div class="olay"><div class="serit" style="background:'+esc(p.c.renk)+'"></div><div style="flex:1"><b>'+esc(p.c.banka)+'</b> ile '+tl(p.brut)+' altın<br><span class="soluk">'+trTarih(p.son)+' ödemesine girer</span></div></div>';}).join('')+'<p class="soluk">Toplam masraf '+tl(mas)+'.</p></div>':'<p style="color:var(--kirmizi)">⛔ Kartlardaki boş limit bu tutara yetmiyor. Bankayı arayıp bu ekstreyi taksitlendirmeyi iste.</p>';}
   h+='<div class="soluk" style="margin-top:6px">Not: Kuyumcuda kartla altın alımı genelde tek çekim olur, taksit yapılmaz.</div>';
-  if(T.length){var top=0;h+='<h3 style="margin:16px 0 4px">📆 Bu ayın döndürme takvimi</h3><p class="soluk" style="margin:0 0 6px">Aylık '+tl(elde())+' paranı tarih sırasıyla dağıttıktan sonra açık kalanlar:</p>';
+  if(false){var top=0;h+='<h3 style="margin:16px 0 4px">📆 Bu ayın döndürme takvimi</h3><p class="soluk" style="margin:0 0 6px">Aylık '+tl(elde())+' paranı tarih sırasıyla dağıttıktan sonra açık kalanlar:</p>';
     T.forEach(function(x){var m=x.parca?x.parca.reduce(function(s,p){return s+p.brut;},0)-x.eks:0;top+=m;
       h+='<div class="olay"><div class="tarih">'+x.o.tarih.getDate()+'<small>'+AYLAR[x.o.tarih.getMonth()].slice(0,3)+'</small></div><div class="serit" style="background:'+esc(x.o.c.renk)+'"></div><div style="flex:1"><b>'+esc(x.o.c.banka)+'</b> · '+tl(x.eks)+' açık<br><span class="soluk">'+(x.parca?'🪙 '+trTarih(x.alis)+': '+x.parca.map(function(p){return esc(p.c.banka)+' ile '+tl(p.brut);}).join(' + '):'⛔ Limit yetmiyor — bankayla taksitlendir')+'</span></div><button class="btn2" style="padding:8px 10px" onclick="DG.hedef=\''+x.o.c.id+'\';DG.net='+x.eks+';cizAvans()">Seç</button></div>';});
     h+='<p style="margin:8px 0 0"><b>Bu ayın toplam döndürme masrafı: <span style="color:var(--kirmizi)">'+tl(top)+'</span></b></p>';}
@@ -403,8 +440,8 @@ function donguYaptim(kaynakId,hedefId,brut,net){var kc=kartBul(kaynakId),hc=kart
 function elde(){var g=V.gelir,x=V.gider;var gel=(+g.maas||0)+(+g.ek||0);if(!gel)return 0;return gel-(+x.kira||0)-(+x.diger||0);}
 function cizPlan(){
   var el=$('s-plan'),g=V.gelir,x=V.gider;
-  var h=(V.kilitli?kilitKarti():'')+kapatmaKarti()+senaryoKarti()+danismanKarti()+'<div class="k"><h2>💰 Aylık gelir ve gider</h2><div class="izgara">'+
-   [['gelir','maas','Maaş / ana gelir'],['gelir','ek','Ek gelir'],['gider','kira','Kira'],['gider','diger','Fatura, mutfak, yol']].map(function(a){return '<div><label>'+a[2]+'</label><input inputmode="decimal" value="'+((V[a[0]][a[1]]||0)?(+V[a[0]][a[1]]).toLocaleString('tr-TR'):'')+'" placeholder="0" onchange="V.'+a[0]+'.'+a[1]+'=sayi(this.value);kaydet();cizPlan()"></div>';}).join('')+'</div></div>';
+  var h=(V.kilitli?kilitKarti():'')+kapatmaKarti()+senaryoKarti()+gelirFikirKarti()+danismanKarti()+'<div class="k"><h2>💰 Aylık gelir ve gider</h2><div class="izgara">'+
+   [['gelir','maas','Maaş / ana gelir'],['gelir','ek','Ek gelir'],['gelir','gun','Paranın yattığı gün (ayın kaçı)'],['gider','kira','Kira'],['gider','diger','Fatura, mutfak, yol']].map(function(a){return '<div><label>'+a[2]+'</label><input inputmode="decimal" value="'+((V[a[0]][a[1]]||0)?(+V[a[0]][a[1]]).toLocaleString('tr-TR'):'')+'" placeholder="0" onchange="V.'+a[0]+'.'+a[1]+'=sayi(this.value);kaydet();cizPlan()"></div>';}).join('')+'</div></div>';
   var kalan=elde(),L=olaylar().filter(function(o){return o.tip==='gecikti'||o.d<=30;});
   var on=L.slice().sort(function(a,b){var p=function(o){return o.tip==='gecikti'?0:(o.tutar<5000?1:2);};return (p(a)-p(b))||(a.tarih-b.tarih);});
   var para=kalan,ac=0;
@@ -450,8 +487,8 @@ function cizAyarlar(){
 }
 
 /* ---------- sayfa geçişi ---------- */
-var SAYFALAR={ana:cizAna,kartlar:cizKartlar,avans:cizAvans,plan:cizPlan,ayarlar:cizAyarlar};
-function git(s){if(!SAYFALAR[s])s='ana';if(location.hash!=='#'+s){history.replaceState(null,'','#'+s);}
+var SAYFALAR={ana:cizAna,kartlar:cizKartlar,avans:cizAvans,plan:cizPlan,huzur:cizHuzur,ayarlar:cizAyarlar};
+function git(s){if(!SAYFALAR[s])s='ana';nefesDur();if(location.hash!=='#'+s){history.replaceState(null,'','#'+s);}
   document.querySelectorAll('.sayfa').forEach(function(x){x.classList.toggle('aktif',x.id==='s-'+s);});
   document.querySelectorAll('#alt button').forEach(function(b){b.classList.toggle('sec',b.dataset.s===s);b.setAttribute('aria-current',b.dataset.s===s?'page':'false');});
   SAYFALAR[s]();window.scrollTo(0,0);}
@@ -577,7 +614,8 @@ var ONERILER=[
   {saat:'09:30',gunler:[],baslik:'Kart kontrolü',govde:'Bugün ödemen var mı? Bir bak, içini ferahlat.'},
   {saat:'20:00',gunler:[1],baslik:'Haftalık bütçe',govde:'Bu haftanın ödemelerine 1 dakika göz at.'},
   {saat:'18:00',gunler:[5],baslik:'Hafta sonu öncesi',govde:'Önümüzdeki hafta hangi kartın ödemesi var?'},
-  {saat:'21:30',gunler:[],baslik:'Harcama notu',govde:'Bugün kartla ne harcadın? Kart Pusulası\'na işle.'}];
+  {saat:'21:30',gunler:[],baslik:'Harcama notu',govde:'Bugün kartla ne harcadın? Kart Pusulası\'na işle.'},
+  {saat:'22:45',gunler:[],baslik:'Uyku öncesi huzur',govde:'Yarının planı hazır. Kafandakini bırak, 1 dakika nefes al. 🤲',url:'./#huzur'}];
 function sifre(){var s=$('hSifre')?$('hSifre').value:ls('kp_sifre');if($('hHatirla')){if($('hHatirla').checked&&s)ls('kp_sifre',s);else if(!$('hHatirla').checked)try{localStorage.removeItem('kp_sifre');}catch(e){}}return s;}
 function hatirlatmaYukle(){var s=sifre();if(!s){toast('Kasa şifresini yaz');return;}
   kasaPost('/hatirlatma/liste',{sifre:s,uyg:UYG}).then(function(j){HL=(j.liste||j||[]).filter?(j.liste||j):[];hatirlatmaCiz();toast(HL.length+' hatırlatma geldi');}).catch(function(e){toast(e.message);});}
@@ -589,7 +627,7 @@ function hatirlatmaCiz(){var el=$('hListe');if(!el)return;if(!HL.length){el.inne
    '<div style="height:6px"></div><button class="btnk" style="width:100%" onclick="if(confirm(\'Silinsin mi?\')){HL.splice('+i+',1);hatirlatmaCiz();}">🗑️ Sil</button></div>';}).join('');}
 function gunSec(i,g){var a=HL[i].gunler=HL[i].gunler||[],k=a.indexOf(g);if(k>=0)a.splice(k,1);else a.push(g);hatirlatmaCiz();}
 function hatirlatmaEkle(){HL.push({id:'h'+Date.now().toString(36),saat:'09:00',gunler:[],baslik:'Hatırlatma',govde:'',url:'./#ana',hedef:{},aktif:true});hatirlatmaCiz();}
-function oneriEkle(i){var o=ONERILER[i];HL.push({id:'h'+Date.now().toString(36)+i,saat:o.saat,gunler:o.gunler.slice(),baslik:'💳 Kart Pusulası · '+o.baslik,govde:o.govde,url:'./#ana',hedef:{},aktif:true});hatirlatmaCiz();toast('Eklendi — 💾 Kasaya kaydet\'e dokun');}
+function oneriEkle(i){var o=ONERILER[i];HL.push({id:'h'+Date.now().toString(36)+i,saat:o.saat,gunler:o.gunler.slice(),baslik:'💳 Kart Pusulası · '+o.baslik,govde:o.govde,url:o.url||'./#ana',hedef:{},aktif:true});hatirlatmaCiz();toast('Eklendi — 💾 Kasaya kaydet\'e dokun');}
 function otoListe(){var L=[],b=bugun();olaylar().forEach(function(o){if(o.tip==='gecikti')return;
   [[2,'10:00','2 gün sonra'],[0,'09:00','BUGÜN']].forEach(function(x){var d=new Date(o.tarih.getTime()-x[0]*864e5),f=gunFark(d);if(f<0||f>7)return;
     L.push({id:'oto_'+o.c.id+'_'+tarihYaz(d)+'_'+x[0],saat:x[1],gunler:[d.getDay()],tarih:tarihYaz(d),baslik:'💳 Kart Pusulası · '+o.c.banka,govde:'Son ödeme '+x[2]+' ('+trTarih(o.tarih)+'). Asgariyi kaçırma.',url:'./#ana',hedef:{},aktif:true});});});return L;}
@@ -701,22 +739,80 @@ function senaryoKarti(){if(V.kilitli)return '';var B=SN.butce||elde()||0;
   h+='<p class="soluk" style="margin:10px 0 0">Yaklaşık hesaptır: kart faizi borca göre aylık %3,25–4,25 + vergi alındı. Gerçek ekstreler gelince rakamları 📸 ile güncelle, hesap kendiliğinden yenilenir.</p></div>';
   return h;}
 
+/* ---------- 🤲 huzur köşesi ---------- */
+var SOZLER=[
+ {m:'Şüphesiz zorlukla beraber bir kolaylık vardır. Evet, zorlukla beraber bir kolaylık vardır.',k:'İnşirah 5-6'},
+ {m:'Kim Allah\'tan korkarsa, Allah ona bir çıkış yolu açar ve onu ummadığı yerden rızıklandırır.',k:'Talâk 2-3'},
+ {m:'Allah hiç kimseyi gücünün yetmeyeceği bir şeyle yükümlü kılmaz.',k:'Bakara 286'},
+ {m:'Rabbin seni terk etmedi, sana darılmadı da.',k:'Duhâ 3'},
+ {m:'Allah\'ın rahmetinden ümit kesmeyin.',k:'Zümer 53'},
+ {m:'Kalpler ancak Allah\'ı anmakla huzur bulur.',k:'Ra\'d 28'},
+ {m:'Kim Allah\'a tevekkül ederse, O ona yeter.',k:'Talâk 3'},
+ {m:'Sabredenlere mükâfatları hesapsız ödenir.',k:'Zümer 10'},
+ {m:'Bugün tek bir adımı attın mı? O adım yeter. Gerisi yarının işi.',k:'Kart Pusulası'}];
+function gununSozu(){var b=bugun(),n=Math.floor(b.getTime()/864e5);return SOZLER[n%SOZLER.length];}
+var NF={z:null,s:0};
+function nefesBasla(){nefesDur();var top=$('nfTop'),y=$('nfYazi');if(!top)return;NF.s=0;var adim=0,ADIM=[['Nefes al…',4000,1],['Tut…',4000,1],['Yavaşça ver…',6000,.6]];
+  (function dongu(){if(!$('nfTop'))return nefesDur();var a=ADIM[adim%3];top.style.transitionDuration=(a[1]/1000)+'s';top.style.transform='scale('+a[2]+')';top.textContent=a[0];adim++;NF.s+=a[1];
+    if(NF.s>=70000){NF.z=setTimeout(function(){top.textContent='Elhamdülillah 🤍';top.style.transform='scale(.8)';if(y)y.textContent='Bir dakika sana iyi geldi. İstersen tekrar başlat.';},a[1]);return;}
+    NF.z=setTimeout(dongu,a[1]);})();
+  if(y)y.textContent='Omuzlarını bırak. Sadece daireyi izle.';}
+function nefesDur(){clearTimeout(NF.z);NF.z=null;}
+function cizHuzur(){var el=$('s-huzur'),gs=gununSozu(),b=bugun(),ay=tarihYaz(b).slice(0,7);
+  var od=(V.odemeler||[]).filter(function(o){return o.t.slice(0,7)===ay;}),top=od.reduce(function(s,o){return s+(+o.m||0);},0);
+  var plan=V.ayPlan&&V.ayPlan.adimlar||[],yap=plan.filter(function(a){return a.tamam;}).length;
+  var h='<div class="k" style="background:linear-gradient(135deg,#0f766e,#0e4f63);color:#fff"><div style="font-size:1.25em;line-height:1.5">“'+esc(gs.m)+'”</div><div style="opacity:.8;margin-top:8px">'+esc(gs.k)+'</div></div>';
+  h+='<div class="k"><h2>🌬️ 1 dakika nefes</h2><p class="soluk" style="margin-top:0">Kalbin hızlandığında, gece uyanınca ya da rakamlar kafanda dönerken.</p><div class="nefesTop" id="nfTop">Hazır</div><p id="nfYazi" class="soluk" style="text-align:center">4 saniye al · 4 tut · 6 saniye ver</p><button class="btn" onclick="nefesBasla()">▶️ Başlat</button></div>';
+  h+='<div class="k iyi"><h2>🌱 Bu ay attığın adımlar</h2><p style="margin:0">'+(top?'Bu ay <b>'+od.length+'</b> ödeme yaptın, toplam <b>'+tl(top)+'</b>. ':'')+(plan.length?'Planın <b>'+yap+'/'+plan.length+'</b> adımı tamam. ':'')+'Her işaretlediğin adım, yükün biraz daha hafiflediği demek. Kendine haksızlık etme: kaçmadın, yüzleşiyorsun.</p></div>';
+  h+='<div class="k"><h2>🌙 Uyku öncesi</h2><ol style="padding-left:20px;margin:0">'+
+   '<li>Yarının işi zaten <a href="#ana">planda</a> yazılı. Gece hesap yapmana gerek yok.</li>'+
+   '<li>Aklındakini aşağıya yaz ve bırak; sabah burada olacak.</li><li>Telefonu yatmadan 20 dakika önce bırak, ışığı kıs.</li>'+
+   '<li>1 dakika nefes, ardından bir dua; gerisini Allah\'a bırak.</li><li>Gece uyanırsan saate bakma; nefese dön.</li></ol>'+
+   '<label for="hzNot">📝 Kafamdakini bırakıyorum</label><textarea id="hzNot" rows="3" placeholder="Aklını kurcalayanı yaz…" oninput="ls(\'kp_hznot\',this.value)">'+esc(ls('kp_hznot')||'')+'</textarea></div>';
+  h+='<div class="k"><h2>🤲 Borç ve sıkıntı duaları</h2>'+
+   '<div class="hat"><b>Allâhümme’kfinî bi-halâlike an harâmik, ve ağninî bi-fadlike ammen sivâk.</b><div class="soluk" style="margin-top:6px">Allah’ım! Helalinle beni haramından koru, lütfunla beni Senden başkasına muhtaç etme. (Tirmizî)</div></div>'+
+   '<div class="hat"><b>Allâhümme innî eûzü bike mine’l-hemmi ve’l-hazen, ve’l-aczi ve’l-kesel, ve’l-buhli ve’l-cübn, ve dal‘ı’d-deyni ve galebeti’r-ricâl.</b><div class="soluk" style="margin-top:6px">Allah’ım! Kaygıdan ve hüzünden, acizlikten ve tembellikten, cimrilikten ve korkaklıktan, borcun ağırlığından ve insanların baskısından Sana sığınırım. (Buhârî)</div></div>'+
+   '<div class="hat"><b>Hasbünallâhü ve ni‘me’l-vekîl.</b><div class="soluk" style="margin-top:6px">Allah bize yeter, O ne güzel vekildir. (Âl-i İmrân 173)</div></div></div>';
+  h+='<div class="k"><h2>🤝 Yalnız taşıma</h2><p style="margin-top:0">Uykunu bölen bir yük, konuşulunca hafifler. Bir uzmanla görüşmek zayıflık değil, kendine bakmaktır.</p><ul style="padding-left:20px;margin:0">'+
+   '<li><b>ALO 182</b> ya da e-Nabız/MHRS’den devlet hastanesinde <b>psikiyatri</b> randevusu al (SGK’lı).</li><li>Okulundaki <b>rehber öğretmen</b> güvenilir bir ilk durak olabilir.</li><li>Güvendiğin bir hocaefendi, eski bir arkadaş: bir kahve, bir telefon.</li></ul><p class="soluk" style="margin-bottom:0">Kendine zarar verme düşüncesi gelirse hiç beklemeden <b>112</b>’yi ara.</p></div>';
+  el.innerHTML=h;}
+
+/* ---------- 💡 ek gelir fikirleri ---------- */
+var FIKIRLER=[
+ {id:'atolye',ad:'Anaokullarına robotik-kodlama atölyesi',tutar:15000,adim:'Zaten gittiğin okullara ek olarak 2 anaokuluna daha haftada 1 saatlik paket öner (sınıf başı aylık ücret).'},
+ {id:'lisans',ad:'Platformlarını okullara yıllık lisansla sat',tutar:10000,adim:'Ortak Yazılı Hazırlık, Zihin Köprüsü, Okuma Saati: okul başına yıllık lisans; tanıdığın 3 okul müdürüne demo göster.'},
+ {id:'satranc',ad:'Hafta sonu satranç / akıl-zeka grubu',tutar:12000,adim:'6–8 çocukluk grup, cumartesi 2 saat; okul velilerine duyur.'},
+ {id:'ozelegitim',ad:'Bireysel özel eğitim / dil-konuşma seansı',tutar:12000,adim:'11 yıllık deneyimin en güçlü kozun: haftada 3 ek seans.'},
+ {id:'lgs',ad:'Küçük grup LGS / eğitim koçluğu (online)',tutar:10000,adim:'4–5 öğrencilik akşam grubu; Deneme Radarı ile takip.'},
+ {id:'veli',ad:'Velilere dijital “Zihin Köprüsü” paketi',tutar:5000,adim:'Dikkat-hafıza paketini veliye aylık küçük ücretle aç.'}];
+function gelirFikirKarti(){if(V.kilitli)return '';var sec=V.fikir||{};var ekToplam=0;
+  var h='<div class="k"><h2>💡 Ek gelir fikirleri</h2><p class="soluk" style="margin-top:0">Senin bilgi ve becerine uygun. Tutarlar tahmini; kendi fiyatını yaz. İşaretlediklerin hesaba katılır.</p>';
+  FIKIRLER.forEach(function(f){var s=sec[f.id]||{},tut=s.tutar!=null?s.tutar:f.tutar;if(s.on)ekToplam+=+tut||0;
+    h+='<div class="hat"><div class="satir ara"><b>'+esc(f.ad)+'</b><input type="checkbox" aria-label="Hesaba kat" style="width:26px;height:26px" '+(s.on?'checked':'')+' onchange="fikirSec(\''+f.id+'\',this.checked)"></div><div class="soluk" style="margin:4px 0">'+esc(f.adim)+'</div>'+
+     '<div class="satir"><span class="soluk">Aylık ~</span><input inputmode="decimal" style="max-width:140px;padding:8px" value="'+(+tut).toLocaleString('tr-TR')+'" onchange="fikirTutar(\''+f.id+'\',this.value)"><span class="soluk">TL</span></div></div>';});
+  if(ekToplam){var B=SN.butce||elde(),a=simule(B,SN.strateji),c=simule(B+ekToplam,SN.strateji);
+    h+='<div class="hat iyi" style="border-left:6px solid var(--yesil)"><b>Seçtiklerinle ayda +'+tl(ekToplam)+'</b><br>Borcun '+(a.ay&&c.ay?'<b>'+(a.ay-c.ay)+' ay önce</b> biter ('+ayAdi(c.ay)+')':'daha erken biter')+(c.dAy<a.dAy?', döndürme ihtiyacı '+(a.dAy-c.dAy)+' ay azalır':'')+'.</div>';}
+  return h+'</div>';}
+function fikirSec(id,on){V.fikir=V.fikir||{};V.fikir[id]=V.fikir[id]||{};V.fikir[id].on=on;kaydet();cizPlan();}
+function fikirTutar(id,v){V.fikir=V.fikir||{};V.fikir[id]=V.fikir[id]||{};V.fikir[id].tutar=sayi(v);kaydet();cizPlan();}
+
 /* ---------- 🤖 akıllı danışman ---------- */
 var GMODEL='gemini-2.5-flash';
 function anahtarCoz(){var k=ls('kp_gemini_key');if(k)return k;if(window.ZKASA_URL!==''&&kasa())return 'KASA-anahtar-kasada-saklaniyor-00';return '';}
 function aiRozetYazi(){var s=ls('kp_ai_ok');return s==='1'?'🟢 Yapay zekâ bağlı':s==='0'?'🔴 Yapay zekâ bağlı değil · dokun':'🤖 Yapay zekâ · test için dokun';}
 function ozetMetni(){var L=olaylar(),t=toplamlar(),g=V.gelir,x=V.gider;
   var s='Bugün: '+trTarih(bugun(),true)+' '+bugun().getFullYear()+'\nAylık gelir: '+((+g.maas||0)+(+g.ek||0))+' TL (maaş '+(+g.maas||0)+', ek '+(+g.ek||0)+'), kira '+(+x.kira||0)+' TL, diğer gider '+(+x.diger||0)+' TL.\nToplam kart borcu '+Math.round(t.borc)+' TL, toplam limit '+Math.round(t.limit)+' TL.\nKartlar:\n';
-  V.kartlar.forEach(function(c){var d=durum(c);s+='- '+c.banka+' ('+c.ad+'): limit '+Math.round(c.limit)+', kullanılabilir '+Math.round(c.kullanilabilir)+', toplam borç '+Math.round(c.toplamBorc)+', kalan ekstre '+Math.round(c.kalanEkstre||0)+', kalan asgari '+(c.kalanAsgari==null?'bilinmiyor':Math.round(c.kalanAsgari))+', son ödeme '+c.sonOdeme+', durum: '+d.yazi.replace(/[^\wçğıöşüÇĞİÖŞÜ .,:—-]/g,'').trim()+'\n';});
+  V.kartlar.forEach(function(c){var d=durum(c);s+='- '+c.banka+' ('+c.ad+')'+(c.kapat?' [KAPATILACAK]':'')+': ekstre kesim günü '+c.kesimGunu+', ödeme günü '+c.odemeGunu+', limit '+Math.round(c.limit)+', kullanılabilir '+Math.round(c.kullanilabilir)+', toplam borç '+Math.round(c.toplamBorc)+', kalan ekstre '+Math.round(c.kalanEkstre||0)+', kalan asgari '+(c.kalanAsgari==null?'bilinmiyor':Math.round(c.kalanAsgari))+', son ödeme '+c.sonOdeme+', durum: '+d.yazi.replace(/[^\wçğıöşüÇĞİÖŞÜ .,:—-]/g,'').trim()+'\n';});
   s+='Önümüzdeki 30 gün asgariler: '+L.filter(function(o){return o.d<=30;}).map(function(o){return o.c.banka+' '+trTarih(o.tarih)+' '+Math.round(o.tutar)+' TL'+(o.tahmini?' (tahmini)':'');}).join('; ');
+  try{var p=planGetir();s+='\nParanın yattığı gün: ayın '+(V.gelir.gun||15)+'\'i.\nUygulamanın planı:\n'+p.adimlar.filter(function(a){return !a.tamam;}).map(function(a){var c=a.k?kartBul(a.k):null;return a.tarih+': '+(a.tip==='altin'?(c?c.banka:'')+' ile '+a.brut+' TL altın al (eline ~'+a.net+')':a.tip==='maas'?'para yatar '+a.tutar+' TL':(c?c.banka:'')+' öde '+a.tutar+' TL');}).join('\n');}catch(e){}
   return s;}
-var HAZIR_SORU=['Bu ay ne yapmalıyım? Adım adım söyle.','Bankayı arayınca tam olarak ne diyeyim? Kısa bir konuşma metni yaz.','Borç kapatma kredisi mantıklı mı? Hangi kartları kapatmalıyım?','Altınla döndürmeyi bırakırsam bu ay nasıl idare ederim?'];
+var HAZIR_SORU=['Bu ay hangi kartla, hangi gün, ne kadar altın alayım?','Bu ayın planını kısaca, sırayla anlat.','En yakın ödememi nasıl karşılarım?','Hangi kartın ekstresi yeni kesildi, şu an en rahat kart hangisi?'];
 function danismanKarti(){return '<div class="k"><h2>🤖 Akıllı danışman</h2><p class="soluk" style="margin-top:0">Kartlarına bakıp sade Türkçe öneri verir. Hazır sorulardan birine dokun ya da kendi sorunu yaz.</p><div class="secim">'+HAZIR_SORU.map(function(q,i){return '<button onclick="danisman(HAZIR_SORU['+i+'])">'+esc(q.split('?')[0])+'?</button>';}).join('')+'</div>'+
   '<label for="dSoru">Kendi sorun</label><textarea id="dSoru" rows="2" placeholder="Örn: QNB 30 bin teklif etti, 24 ay, %3,2 — alayım mı?"></textarea><div style="height:8px"></div><button class="btn" onclick="danisman($(\'dSoru\').value)">💬 Sor</button><div id="dCevap"></div></div>';}
 function mdBasit(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/^#+\s*(.+)$/gm,'<b>$1</b>').replace(/^\s*[-*]\s+/gm,'• ').replace(/\n/g,'<br>');}
 function danisman(soru){soru=String(soru||'').trim();if(!soru){toast('Sorunu yaz');return;}if(V.kilitli){toast('Önce rakamlarını aç 🔒');return;}
   var el=$('dCevap');el.innerHTML='<p class="soluk">⏳ Hazırlanıyor…</p>';
-  var sistem='Sen Türkiye\'de yaşayan bir öğretmene kredi kartı borcu konusunda yardım eden sakin, dürüst ve şefkatli bir danışmansın. Türkçe, sade ve kısa yaz (en fazla 12 satır). Rakam ver, adım adım söyle. Nakit avans ve altınla borç döndürmeyi önerme; yapılandırma, sabit taksit, harcamayı durdurma gibi kalıcı yolları öne çıkar. Kesin faiz bilmiyorsan "bankadan teyit et" de. Finans danışmanı olmadığını tek cümleyle hatırlat.';
+  var sistem='Sen Türkiye\'de yaşayan bir öğretmene kredi kartı borcu konusunda yardım eden sakin, dürüst ve şefkatli bir danışmansın. Türkçe, sade ve kısa yaz (en fazla 12 satır). Kullanıcı ödemelerini kredi kartıyla altın alıp satarak (yaklaşık %5 komisyon) karşılamaya karar verdi; bu onun kararı, ona saygı duy. Bu yöntemi eleştirme, vazgeçirmeye çalışma; kredi, yapılandırma ya da taksitlendirme ÖNERME (yalnız kullanıcı sorarsa anlat). Görevin pratik: ekstre KESİM tarihlerine bak; kesimi yeni geçmiş kartla yapılan harcama bir sonraki ekstreye girer ve ~1 ay sonra ödenir, bu yüzden o kart en uygundur. Ödenecek kartın kendisiyle, gecikmesi olan ya da kapatılacak kartla altın almayı önerme; boş limite dikkat et. Cevabı tarih sırasıyla, madde madde ver, örnek: "2 Kasım: Garanti ile 88.000 TL altın al, sat, İş Bankası\'na 81.168 TL yatır". Tutarları 1.000\'e yuvarla, büyük ve az sayıda alım tercih et. Uygulamanın hazırladığı plan aşağıda; ona uygun konuş. Sade ve kısa yaz (en fazla 12 satır), giriş cümlesi ve uyarı paragrafı yazma.';
   var govde={systemInstruction:{parts:[{text:sistem}]},contents:[{role:'user',parts:[{text:'Durumum:\n'+ozetMetni()+'\n\nSorum: '+soru}]}],generationConfig:{temperature:0.4,maxOutputTokens:900}};
   fetch('https://generativelanguage.googleapis.com/v1beta/models/'+GMODEL+':generateContent?key='+encodeURIComponent(anahtarCoz()),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(govde)})
   .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
